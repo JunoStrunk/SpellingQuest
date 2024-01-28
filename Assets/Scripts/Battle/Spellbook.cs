@@ -14,7 +14,7 @@ public class Spellbook : MonoBehaviour
 	public SpellEvent castSpell;
 
 	[SerializeField]
-	TMP_Text castingArea;
+	TMP_InputField castingArea;
 
 	[SerializeField]
 	List<Spell> spells;
@@ -24,33 +24,42 @@ public class Spellbook : MonoBehaviour
 		if (castSpell == null)
 			castSpell = new SpellEvent();
 
-		castSpell.AddListener(GameObject.Find("Spellspace").GetComponent<Spellspace>().AddSpell);
+		// castingArea.Select();
+
+		castSpell.AddListener(GameObject.Find("Spellspace").GetComponent<Spellspace>().PlayerSpell);
 	}
 
 	public void Update()
 	{
-		foreach (char c in Input.inputString)
-		{
-			if (c == '\n' || c == '\r') //If player presses new line or return...
-			{
-				//Check input if it matches any spells
-				ValidateSpell(castingArea.text);
+		if (!PauseControl.gameIsPaused && Input.GetKeyDown(KeyCode.Return))
+			CollectInput();
+	}
 
-				//Delete text area
-				castingArea.text = string.Empty;
-			}
+	public void CollectInput()
+	{
+		ValidateSpell(castingArea.text);
+		castingArea.text = string.Empty;
+		// foreach (char c in Input.inputString)
+		// {
+		// 	if (c == '\n' || c == '\r') //If player presses new line or return...
+		// 	{
+		// 		//Check input if it matches any spells
+		// 		ValidateSpell(castingArea.text);
 
+		// 		//Delete text area
+		// 		castingArea.text = string.Empty;
+		// 	}
+		// 	else if (c == '\u0008') //backspace
+		// 	{
+		// 		if (castingArea.text.Length > 0)
+		// 			castingArea.text = castingArea.text.Substring(0, castingArea.text.Length - 1);
+		// 	}
+		// 	else
+		// 	{
+		// 		castingArea.text += c;
+		// 	}
+		// }
 
-			else if (c == '\u0008') //backspace
-			{
-				if (castingArea.text.Length > 0)
-					castingArea.text = castingArea.text.Substring(0, castingArea.text.Length - 1);
-			}
-			else
-			{
-				castingArea.text += c;
-			}
-		}
 	}
 
 	public void ValidateSpell(string typedSpell)

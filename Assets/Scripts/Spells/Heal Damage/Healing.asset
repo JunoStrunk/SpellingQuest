@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e78984b46ca4955a8f206866f468e2, type: 3}
-  m_Name: Discombobulate
+  m_Script: {fileID: 11500000, guid: 6d5da0433898a4fb88db102b7d1f366c, type: 3}
+  m_Name: Healing
   m_EditorClassIdentifier: 
-  spellName: Discombobulate
-  incantation: Thy can't modulate this discombobulate
+  spellName: Healing
+  incantation: Wounds begone
+  spellType: 2
+  healing: 5

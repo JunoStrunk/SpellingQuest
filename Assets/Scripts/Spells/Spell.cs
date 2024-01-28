@@ -8,4 +8,12 @@ public class Spell : ScriptableObject
     public string spellName;
     public string incantation;
 
+    public enum SpellType
+    {
+        Attack,
+        Avoid,
+        Heal
+    }
+    public SpellType spellType;
+
 }

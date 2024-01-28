@@ -1,17 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-
-[System.Serializable]
-public class HealthUIEvent : UnityEvent<float>
-{
-}
 
 public class Health : MonoBehaviour
 {
-    public HealthUIEvent setHealth;
-    public HealthUIEvent updateHealth;
+    public FillUI healthUI;
 
     [SerializeField]
     float maxHealth;
@@ -22,8 +15,8 @@ public class Health : MonoBehaviour
     public void Start()
     {
         health = maxHealth;
-        if (setHealth != null)
-            setHealth.Invoke(maxHealth);
+        if (healthUI != null)
+            healthUI.SetFill(maxHealth);
     }
 
     public void Damage(float dmg)
@@ -46,7 +39,7 @@ public class Health : MonoBehaviour
 
     public void UpdateHealth()
     {
-        if (updateHealth != null)
-            updateHealth.Invoke(health);
+        if (healthUI != null)
+            healthUI.UpdateFill(health);
     }
 }
