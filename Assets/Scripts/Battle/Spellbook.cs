@@ -17,6 +17,9 @@ public class Spellbook : MonoBehaviour
 	TMP_InputField castingArea;
 
 	[SerializeField]
+	private Keyboard keyboard;
+
+	[SerializeField]
 	List<Spell> spells;
 
 	void Start()
@@ -24,9 +27,22 @@ public class Spellbook : MonoBehaviour
 		if (castSpell == null)
 			castSpell = new SpellEvent();
 
-		// castingArea.Select();
+		castingArea.Select();
+
+		keyboard.onBackspacePressed += BackspacePressedCallback;
+		keyboard.onSpacePressed += SpacePressedCallback;
+		keyboard.onEnterPressed += EnterPressedCallback;
+		keyboard.onKeyPressed += KeyPressedCallback;
 
 		castSpell.AddListener(GameObject.Find("Spellspace").GetComponent<Spellspace>().PlayerSpell);
+	}
+
+	void OnDestroy()
+	{
+		keyboard.onBackspacePressed -= BackspacePressedCallback;
+		keyboard.onSpacePressed -= SpacePressedCallback;
+		keyboard.onEnterPressed -= EnterPressedCallback;
+		keyboard.onKeyPressed -= KeyPressedCallback;
 	}
 
 	public void Update()
@@ -37,8 +53,10 @@ public class Spellbook : MonoBehaviour
 
 	public void CollectInput()
 	{
-		ValidateSpell(castingArea.text);
+		ValidateSpell(castingArea.text.ToLower());
 		castingArea.text = string.Empty;
+		castingArea.ActivateInputField();
+		castingArea.Select();
 		// foreach (char c in Input.inputString)
 		// {
 		// 	if (c == '\n' || c == '\r') //If player presses new line or return...
@@ -72,6 +90,29 @@ public class Spellbook : MonoBehaviour
 				break;
 			}
 		}
+	}
+
+	private void BackspacePressedCallback()
+	{
+		if (castingArea.text.Length > 0)
+			castingArea.text = castingArea.text.Substring(0, castingArea.text.Length - 1);
+	}
+	private void SpacePressedCallback()
+	{
+
+		castingArea.text += " ";
+	}
+	private void EnterPressedCallback()
+	{
+		if (castingArea.text.Length > 0)
+		{
+			CollectInput();
+		}
+	}
+
+	private void KeyPressedCallback(char key)
+	{
+		castingArea.text += key.ToString();
 	}
 
 }

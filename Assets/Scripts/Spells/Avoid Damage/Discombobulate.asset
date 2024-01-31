@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Discombobulate
   m_EditorClassIdentifier: 
   spellName: Discombobulate
-  incantation: Thy can't modulate this discombobulate
+  incantation: thy cannot modulate this discombobulate
   spellType: 1

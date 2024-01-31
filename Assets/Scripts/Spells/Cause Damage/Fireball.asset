@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   spellName: Fireball
-  incantation: Cast profane firey flame
+  incantation: cast profane firey flame
+  spellType: 0
   attack: {fileID: 11400000, guid: c6c81b222edfb45a499470fd5507c05c, type: 2}

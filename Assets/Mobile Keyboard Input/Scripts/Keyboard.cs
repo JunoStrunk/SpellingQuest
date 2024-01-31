@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Keyboard : MonoBehaviour
 {
     [Header(" Elements ")]
+    private VerticalLayoutGroup vertPanel;
     [SerializeField] private RectTransform rectTransform;
+    [SerializeField] private GameObject horzPanel;
     [SerializeField] private Key keyPrefab;
     [SerializeField] private Key backspaceKeyPrefab;
+    [SerializeField] private Key spaceKeyPrefab;
+    [SerializeField] private Key enterKeyPrefab;
 
 
     [Header(" Settings ")]
@@ -34,129 +39,60 @@ public class Keyboard : MonoBehaviour
     [Header(" Events ")]
     public Action<char> onKeyPressed;
     public Action onBackspacePressed;
+    public Action onSpacePressed;
+    public Action onEnterPressed;
 
     // Start is called before the first frame update
-    IEnumerator Start()
+    void Start()
     {
+        vertPanel = transform.GetChild(0).GetComponent<VerticalLayoutGroup>();
         CreateKeys();
 
-        yield return null;
-
-        UpdateRectTransform();
-
         //rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateRectTransform();
-        PlaceKeys();
-    }
-
-    private void UpdateRectTransform()
-    {
-        float width = widthPercent * Screen.width;
-        float height = heightPercent * Screen.height;
-
-        // Configuring the size of the keyboard container
-        rectTransform.sizeDelta = new Vector2(width, height);
-
-        // Configure the bottom offset
-        Vector2 position;
-
-        position.x = Screen.width / 2;
-        position.y = bottomOffset * Screen.height + height / 2;
-
-        rectTransform.position = position;
     }
 
     private void CreateKeys()
     {
         for (int i = 0; i < lines.Length; i++)
         {
+            GameObject newHorzPanel = Instantiate(horzPanel, vertPanel.transform);
             for (int j = 0; j < lines[i].keys.Length; j++)
             {
                 char key = lines[i].keys[j];
 
-                if(key == '.')
+                if (key == '.')
                 {
                     // It's the backspace key
-                    Key keyInstance = Instantiate(backspaceKeyPrefab, rectTransform);
+                    Key keyInstance = Instantiate(backspaceKeyPrefab, newHorzPanel.transform);
 
                     keyInstance.GetButton().onClick.AddListener(() => BackspacePressedCallback());
+                }
+                else if (key == '_')
+                {
+                    // It's the space key
+                    Key keyInstance = Instantiate(spaceKeyPrefab, newHorzPanel.transform);
+
+                    keyInstance.GetButton().onClick.AddListener(() => SpacePressedCallback());
+
+                }
+                else if (key == '<')
+                {
+                    // It's the enter key
+                    Key keyInstance = Instantiate(enterKeyPrefab, newHorzPanel.transform);
+
+                    keyInstance.GetButton().onClick.AddListener(() => EnterPressedCallback());
+
                 }
                 else
                 {
                     // It's a normal key
-                    Key keyInstance = Instantiate(keyPrefab, rectTransform);
+                    Key keyInstance = Instantiate(keyPrefab, newHorzPanel.transform);
                     keyInstance.SetKey(key);
 
                     keyInstance.GetButton().onClick.AddListener(() => KeyPressedCallback(key));
                 }
 
-                
-            }
-        }
-    }
 
-    private void PlaceKeys()
-    {
-        int lineCount = lines.Length;
-
-        float lineHeight = rectTransform.rect.height / lineCount;
-
-        float keyWidth = lineHeight * keyToLineRatio;
-        float xSpacing = keyXSpacing * lineHeight;
-
-        int currentKeyIndex = 0;
-
-        for (int i = 0; i < lineCount; i++)
-        {
-
-            bool containsBackspace = lines[i].keys.Contains(".");
-
-            
-            
-            float halfKeyCount = (float)lines[i].keys.Length / 2;
-
-            if (containsBackspace)
-                halfKeyCount += .5f;
-
-
-
-
-            float startX = rectTransform.position.x - (keyWidth + xSpacing) * halfKeyCount + (keyWidth + xSpacing) / 2;
-
-            float lineY = rectTransform.position.y + rectTransform.rect.height / 2 - lineHeight / 2 - i * lineHeight;
-
-
-
-
-
-            for (int j = 0; j < lines[i].keys.Length; j++)
-            {
-
-                bool isBackspaceKey = lines[i].keys[j] == '.';
-
-                float keyX = startX + j * (keyWidth + xSpacing);
-
-                if(isBackspaceKey)
-                    keyX += keyWidth - xSpacing;
-
-                Vector2 keyPosition = new Vector2(keyX, lineY);
-
-                RectTransform keyRectTransform = rectTransform.GetChild(currentKeyIndex).GetComponent<RectTransform>();
-                keyRectTransform.position = keyPosition;
-
-                float thisKeyWidth = keyWidth;
-
-                if(isBackspaceKey)
-                    thisKeyWidth *= 2;
-
-                keyRectTransform.sizeDelta = new Vector2(thisKeyWidth, keyWidth);
-
-                currentKeyIndex++;
             }
         }
     }
@@ -166,6 +102,18 @@ public class Keyboard : MonoBehaviour
         Debug.Log("Backspace pressed");
 
         onBackspacePressed?.Invoke();
+    }
+    private void SpacePressedCallback()
+    {
+        Debug.Log("Space pressed");
+
+        onSpacePressed?.Invoke();
+    }
+    private void EnterPressedCallback()
+    {
+        Debug.Log("Enter pressed");
+
+        onEnterPressed?.Invoke();
     }
 
     private void KeyPressedCallback(char key)

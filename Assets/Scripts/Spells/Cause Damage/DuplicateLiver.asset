@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DuplicateLiver
   m_EditorClassIdentifier: 
   spellName: Duplicate Liver
-  incantation: O grant the power unto me to give this man livers three
+  incantation: o grant the power unto me to give this man livers three
+  spellType: 0
   attack: {fileID: 11400000, guid: 305dfb1f462d7448ab48425d5350320f, type: 2}

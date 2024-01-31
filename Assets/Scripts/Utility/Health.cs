@@ -1,6 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class DieEvent : UnityEvent<GameObject>
+{
+}
 
 public class Health : MonoBehaviour
 {
@@ -12,8 +19,11 @@ public class Health : MonoBehaviour
     [SerializeField]
     public float health;
 
+    public DieEvent onDied;
+
     public void Start()
     {
+        onDied.AddListener(GameObject.FindGameObjectWithTag("Spellspace").GetComponent<Spellspace>().SomethingDied);
         health = maxHealth;
         if (healthUI != null)
             healthUI.SetFill(maxHealth);
@@ -23,6 +33,8 @@ public class Health : MonoBehaviour
     {
         health -= dmg;
         UpdateHealth();
+        if (health <= 0f)
+            onDied?.Invoke(gameObject);
     }
 
     public void Heal(float healing)

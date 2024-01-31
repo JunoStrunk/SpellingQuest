@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dodge
   m_EditorClassIdentifier: 
   spellName: Dodge
-  incantation: Evasion occasion
+  incantation: evasion occasion
   spellType: 1

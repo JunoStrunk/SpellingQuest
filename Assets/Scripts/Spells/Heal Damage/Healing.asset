@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Healing
   m_EditorClassIdentifier: 
   spellName: Healing
-  incantation: Wounds begone
+  incantation: wounds begone
   spellType: 2
   healing: 5

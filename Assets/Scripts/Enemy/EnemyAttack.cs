@@ -1,6 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class AttackEvent : UnityEvent<Attack>
+{
+}
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -13,8 +19,13 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField]
     List<Attack> attacks;
 
+    AttackEvent onAttack;
+
     public void Start()
     {
+        if (onAttack == null)
+            onAttack = new AttackEvent();
+        onAttack.AddListener(GameObject.FindGameObjectWithTag("Spellspace").GetComponent<Spellspace>().EnemyAttack);
         enemyStats = GetComponent<EnemyStats>();
         enemyStats.attackTimer.SetFill(1.0f);
         StartCoroutine(AttackTimer());
@@ -29,8 +40,8 @@ public class EnemyAttack : MonoBehaviour
     {
         if (aggroed && !PauseControl.gameIsPaused)
         {
-            Attack currAttack = attacks[Random.Range(0, attacks.Count)];
-            EventManager.Instance.InvokeAttackEvent(enemyStats.GetID(), currAttack);
+            Attack currAttack = attacks[UnityEngine.Random.Range(0, attacks.Count)];
+            onAttack?.Invoke(currAttack);
             StartCoroutine(AttackTimer());
         }
     }

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class Key : MonoBehaviour
 {
     [Header(" Elements ")]
-    [SerializeField] private Text keyText;
+    [SerializeField] private TMP_Text keyText;
     private char key;
 
     [Header(" Settings ")]
     [SerializeField] private bool isBackspace;
+    [SerializeField] private bool isSpace;
+    [SerializeField] private bool isEnter;
 
     public void SetKey(char key)
     {
@@ -26,5 +29,13 @@ public class Key : MonoBehaviour
     public bool IsBackspace()
     {
         return isBackspace;
+    }
+    public bool IsSpace()
+    {
+        return isSpace;
+    }
+    public bool IsEnter()
+    {
+        return isEnter;
     }
 }

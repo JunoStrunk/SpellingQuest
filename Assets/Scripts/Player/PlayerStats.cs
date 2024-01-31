@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerStats : IStats
 {
+    public UnityEvent onDodge;
     public bool dodging;
     public float dodgeTime;
 
@@ -24,7 +26,7 @@ public class PlayerStats : IStats
 
     public void Dodge()
     {
-        EventManager.Instance.InvokeColorEvent(dodgeTime);
+        onDodge?.Invoke();
         StartCoroutine(DodgeTiming());
     }
 

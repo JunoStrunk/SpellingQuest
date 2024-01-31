@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ColorTurnTest : MonoBehaviour
 {
@@ -10,16 +11,6 @@ public class ColorTurnTest : MonoBehaviour
     public void Start()
     {
         spriteren = GetComponent<SpriteRenderer>();
-    }
-
-    public void OnEnable()
-    {
-        EventManager.Instance.OnColorEvent += TurnColor;
-    }
-
-    public void OnDisable()
-    {
-        EventManager.Instance.OnColorEvent -= TurnColor;
     }
 
     public void TurnColor(float timing)
