@@ -17,9 +17,6 @@ public class Spellbook : MonoBehaviour
 	TMP_InputField castingArea;
 
 	[SerializeField]
-	private Keyboard keyboard;
-
-	[SerializeField]
 	List<Spell> spells;
 
 	void Start()
@@ -29,20 +26,7 @@ public class Spellbook : MonoBehaviour
 
 		castingArea.Select();
 
-		keyboard.onBackspacePressed += BackspacePressedCallback;
-		keyboard.onSpacePressed += SpacePressedCallback;
-		keyboard.onEnterPressed += EnterPressedCallback;
-		keyboard.onKeyPressed += KeyPressedCallback;
-
 		castSpell.AddListener(GameObject.Find("Spellspace").GetComponent<Spellspace>().PlayerSpell);
-	}
-
-	void OnDestroy()
-	{
-		keyboard.onBackspacePressed -= BackspacePressedCallback;
-		keyboard.onSpacePressed -= SpacePressedCallback;
-		keyboard.onEnterPressed -= EnterPressedCallback;
-		keyboard.onKeyPressed -= KeyPressedCallback;
 	}
 
 	public void Update()
@@ -57,27 +41,11 @@ public class Spellbook : MonoBehaviour
 		castingArea.text = string.Empty;
 		castingArea.ActivateInputField();
 		castingArea.Select();
-		// foreach (char c in Input.inputString)
-		// {
-		// 	if (c == '\n' || c == '\r') //If player presses new line or return...
-		// 	{
-		// 		//Check input if it matches any spells
-		// 		ValidateSpell(castingArea.text);
+	}
 
-		// 		//Delete text area
-		// 		castingArea.text = string.Empty;
-		// 	}
-		// 	else if (c == '\u0008') //backspace
-		// 	{
-		// 		if (castingArea.text.Length > 0)
-		// 			castingArea.text = castingArea.text.Substring(0, castingArea.text.Length - 1);
-		// 	}
-		// 	else
-		// 	{
-		// 		castingArea.text += c;
-		// 	}
-		// }
-
+	public void AddLetter(Letter letter)
+	{
+		castingArea.text += letter.character;
 	}
 
 	public void ValidateSpell(string typedSpell)
@@ -90,29 +58,6 @@ public class Spellbook : MonoBehaviour
 				break;
 			}
 		}
-	}
-
-	private void BackspacePressedCallback()
-	{
-		if (castingArea.text.Length > 0)
-			castingArea.text = castingArea.text.Substring(0, castingArea.text.Length - 1);
-	}
-	private void SpacePressedCallback()
-	{
-
-		castingArea.text += " ";
-	}
-	private void EnterPressedCallback()
-	{
-		if (castingArea.text.Length > 0)
-		{
-			CollectInput();
-		}
-	}
-
-	private void KeyPressedCallback(char key)
-	{
-		castingArea.text += key.ToString();
 	}
 
 }
