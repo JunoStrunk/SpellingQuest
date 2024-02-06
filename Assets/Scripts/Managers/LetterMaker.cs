@@ -19,6 +19,15 @@ public class LetterMaker : MonoBehaviour
 
     void Awake()
     {
+        MakeLetters();
+    }
+
+    public void MakeLetters()
+    {
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            DestroyImmediate(transform.GetChild(i).gameObject);
+        }
         RectTransform rect = GetComponent<RectTransform>();
         float angleInc = 360 / letters.Count;
         Debug.Log(angleInc);
@@ -26,7 +35,6 @@ public class LetterMaker : MonoBehaviour
         {
             Vector3 letterPos = new Vector3(rect.anchoredPosition.x + radius * Mathf.Cos(angle), rect.anchoredPosition.y + radius * Mathf.Sin(angle), 0f);
             GameObject newLetter = Instantiate(letterPrefab, rect, true);
-            Debug.Log($"Radius: {radius} | Angle: {angle} | Cos: {Mathf.Cos(angle * Mathf.Deg2Rad)} | Sin: {Mathf.Sin(angle * Mathf.Deg2Rad)}");
             newLetter.transform.localPosition = new Vector3(radius * Mathf.Cos(angle * Mathf.Deg2Rad), radius * Mathf.Sin(angle * Mathf.Deg2Rad), 0f);
             newLetter.transform.localScale = new Vector3(1f * scaleMultiplier, 1f * scaleMultiplier, 1f);
             newLetter.transform.GetChild(0).GetComponent<TMP_Text>().text = letters[i].ToString();

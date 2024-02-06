@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e78984b46ca4955a8f206866f468e2, type: 3}
-  m_Name: Discombobulate
+  m_Script: {fileID: 11500000, guid: d8f1c21065f884843b91d1eb9a1815d9, type: 3}
+  m_Name: Fails
   m_EditorClassIdentifier: 
-  spellName: Discombobulate
-  incantation: thy cannot modulate this discombobulate
-  spellType: 1
+  spellName: Fails
+  incantation: fails
+  spellType: 0
+  attack: {fileID: 11400000, guid: fc7113325ca1a45d18723f71820a0aea, type: 2}
