@@ -208,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256241278}
   - component: {fileID: 256241277}
+  - component: {fileID: 256241279}
   m_Layer: 0
   m_Name: Spellbook
   m_TagString: Untagged
@@ -230,40 +231,13 @@ MonoBehaviour:
   castSpell:
     m_PersistentCalls:
       m_Calls: []
+  genSpell:
+    m_PersistentCalls:
+      m_Calls: []
   castingArea: {fileID: 369435185}
   spells:
   - {fileID: 11400000, guid: 3c97ba8e8b8ca40a283eb4c04754376e, type: 2}
   - {fileID: 11400000, guid: 6a84397dacf54498d82e7c1a8b9c44c4, type: 2}
-  - {fileID: 11400000, guid: 71c00f6a27b1244e0b541e4d8152e8be, type: 2}
-  - {fileID: 11400000, guid: 64765e7d96d694759aa02fcb7b403322, type: 2}
-  - {fileID: 11400000, guid: 7a58cd4491a924f8aaa5887620ce6a14, type: 2}
-  - {fileID: 11400000, guid: efb57f94ce3b143859cb7e61d6126c8a, type: 2}
-  - {fileID: 11400000, guid: 0320a7934dbaa4a26a48622d9f0a465e, type: 2}
-  - {fileID: 11400000, guid: 39e48485ffac64f2eba5932bcb060bed, type: 2}
-  - {fileID: 11400000, guid: 802cefeaebfe24be58c0061c29d95f0c, type: 2}
-  - {fileID: 11400000, guid: 5688f679f247741db8059d4affd68481, type: 2}
-  - {fileID: 11400000, guid: fd2672dbf40fd4d189880937188a7b05, type: 2}
-  - {fileID: 11400000, guid: 95ee15f6d71674eddbc1f32fe1f518b7, type: 2}
-  - {fileID: 11400000, guid: 4d12dace4b8d146c89dbf45a76dc660f, type: 2}
-  - {fileID: 11400000, guid: 299dc68984fb9450e8834f1b2b1640c6, type: 2}
-  - {fileID: 11400000, guid: 41e625852619f40e9a1dfc8026aab30d, type: 2}
-  - {fileID: 11400000, guid: 7c78d32dcf3344fe3968d3fe69619e8c, type: 2}
-  - {fileID: 11400000, guid: fd0d8d615808545849eeb4e6c6f75354, type: 2}
-  - {fileID: 11400000, guid: 65529369bec59497aa8a01c55d9796fd, type: 2}
-  - {fileID: 11400000, guid: 5364985e1487d4f7e8fc7e7f4a8f18f9, type: 2}
-  - {fileID: 11400000, guid: 1150a07c7b62348c59e00e81ee577c9a, type: 2}
-  - {fileID: 11400000, guid: ba625a6626bd64726a0c7045e38d2a2b, type: 2}
-  - {fileID: 11400000, guid: c2f5c9128fff54b3db992adc578016ff, type: 2}
-  - {fileID: 11400000, guid: 609a98efc548444a9ac5988688cd2c13, type: 2}
-  - {fileID: 11400000, guid: b7beddeefdf8e42d687f164f5c898721, type: 2}
-  - {fileID: 11400000, guid: 79a75e341d9904075851d204be801b4d, type: 2}
-  - {fileID: 11400000, guid: 64c17263ee87a4a2886e9014e932a78f, type: 2}
-  - {fileID: 11400000, guid: 04bc2e0398e424a08bcb41f01ae77964, type: 2}
-  - {fileID: 11400000, guid: 0ebbcebb6d29b446d8305d591cfb071b, type: 2}
-  - {fileID: 11400000, guid: 10f9d08558039486ba9be5c5d5f22cf4, type: 2}
-  - {fileID: 11400000, guid: 7c35bebf25f6c4738ada49e13dce5d22, type: 2}
-  - {fileID: 11400000, guid: a3b0b756e2a244fdda68911b6544762f, type: 2}
-  - {fileID: 11400000, guid: b877684efdf1c41b59997da9599bc94d, type: 2}
 --- !u!4 &256241278
 Transform:
   m_ObjectHideFlags: 0
@@ -279,6 +253,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &256241279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256241276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbea8e1922f0d44a8873e320edf78028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dictText: {fileID: 4900000, guid: 6ea1d6ed2e09149e99ec2d88c6762471, type: 3}
 --- !u!1 &310376914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,6 +1455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942589261}
   - component: {fileID: 942589260}
+  - component: {fileID: 942589262}
   m_Layer: 0
   m_Name: Spellspace
   m_TagString: Spellspace
@@ -1489,6 +1477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeEnemy: {fileID: 1580415808}
   activePlayer: {fileID: 1522485160}
+  turnControl: {fileID: 942589262}
   sceneManage: {fileID: 875287679}
 --- !u!4 &942589261
 Transform:
@@ -1505,6 +1494,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942589262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942589259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc1bf301bbb143c3a02e01f974bad57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTurnBased: 0
 --- !u!1 &942637195
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,12 +2920,12 @@ GameObject:
   - component: {fileID: 1580415812}
   - component: {fileID: 1580415811}
   - component: {fileID: 1580415810}
-  - component: {fileID: 1580415809}
   - component: {fileID: 1580415808}
+  - component: {fileID: 1580415809}
   - component: {fileID: 1580415807}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

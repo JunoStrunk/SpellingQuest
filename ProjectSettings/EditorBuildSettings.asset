@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Testing/MAIN.unity
     guid: 22f6786b7359b4bf98c57e44add1bb0a
   - enabled: 1
+    path: Assets/Scenes/Testing/Dungeon.unity
+    guid: 690fefb05005c4a76bcee6dca4628402
+  - enabled: 1
     path: Assets/Scenes/Testing/Wordscapes.unity
     guid: ec0b856c310c3435db2cc8c8c8e64a01
   - enabled: 1

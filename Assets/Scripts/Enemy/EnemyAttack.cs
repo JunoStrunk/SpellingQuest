@@ -11,7 +11,6 @@ public class AttackEvent : UnityEvent<Attack>
 public class EnemyAttack : MonoBehaviour
 {
     EnemyStats enemyStats;
-    bool aggroed;
 
     [SerializeField]
     float attackPause;
@@ -21,34 +20,31 @@ public class EnemyAttack : MonoBehaviour
 
     AttackEvent onAttack;
 
-    public void Start()
+    public void Awake()
     {
         if (onAttack == null)
             onAttack = new AttackEvent();
         onAttack.AddListener(GameObject.FindGameObjectWithTag("Spellspace").GetComponent<Spellspace>().EnemyAttack);
         enemyStats = GetComponent<EnemyStats>();
         enemyStats.attackTimer.SetFill(1.0f);
-        StartCoroutine(AttackTimer());
-    }
-
-    public void Activate(bool aggroed)
-    {
-        this.aggroed = aggroed;
     }
 
     public void Attack()
     {
-        if (aggroed && !PauseControl.gameIsPaused)
+        if (!PauseControl.gameIsPaused && !TurnControl.isPlayerTurn)
         {
-            Attack currAttack = attacks[UnityEngine.Random.Range(0, attacks.Count)];
-            onAttack?.Invoke(currAttack);
-            StartCoroutine(AttackTimer());
+            DealDamage();
         }
+    }
+
+    void DealDamage()
+    {
+        Attack currAttack = attacks[UnityEngine.Random.Range(0, attacks.Count)];
+        onAttack?.Invoke(currAttack);
     }
 
     public IEnumerator AttackTimer()
     {
-        aggroed = false;
         // yield return new WaitForSeconds(attackPause);
         float currTime = 0;
         while (currTime <= attackPause)
@@ -57,13 +53,20 @@ public class EnemyAttack : MonoBehaviour
             enemyStats.attackTimer.UpdateFill(currTime / attackPause);
             yield return null;
         }
-        aggroed = true;
+        Attack();
         enemyStats.attackTimer.SetFill(1.0f);
         yield return null;
     }
 
-    public void Update()
+    public void StartStopTimer()
     {
-        Attack();
+        if (!TurnControl.isPlayerTurn)
+            StartCoroutine(AttackTimer());
+        else
+        {
+            StopCoroutine(AttackTimer());
+            enemyStats.attackTimer.SetFill(1.0f);
+        }
     }
+
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spellspace : MonoBehaviour
@@ -7,12 +8,15 @@ public class Spellspace : MonoBehaviour
     public EnemyStats activeEnemy; //Replace with list later on??
     public PlayerStats activePlayer;
 
+    public TurnControl turnControl;
+
     public SceneManage sceneManage;
 
     public void EnemyAttack(Attack attack)
     {
         attack.Damage();
         activePlayer.Damage(attack.damage);
+        TryChangeTurn();
     }
 
     public void PlayerSpell(Spell spell)
@@ -32,6 +36,14 @@ public class Spellspace : MonoBehaviour
             HealSpell healSpell = spell as HealSpell;
             activePlayer.Heal(healSpell.healing);
         }
+        TryChangeTurn();
+    }
+
+    public void GenSpell(int dmg)
+    {
+        Debug.Log(dmg + " General Spell!");
+        activeEnemy.Damage(dmg);
+        TryChangeTurn();
     }
 
     public void SomethingDied(GameObject thing)
@@ -41,5 +53,10 @@ public class Spellspace : MonoBehaviour
         else
             sceneManage.LoadWin();
 
+    }
+
+    void TryChangeTurn()
+    {
+        turnControl.changeTurn();
     }
 }
