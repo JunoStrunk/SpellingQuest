@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using System;
 
 [System.Serializable]
 public class SpellEvent : UnityEvent<Spell>
@@ -26,6 +27,7 @@ public class Spellbook : MonoBehaviour
 
 	[SerializeField]
 	List<Spell> spells;
+	List<string> usedSpells;
 	DictSearch dict;
 
 	void Start()
@@ -35,6 +37,8 @@ public class Spellbook : MonoBehaviour
 			castSpell = new SpellEvent();
 		if (genSpell == null)
 			genSpell = new GenSpellEvent();
+
+		usedSpells = new List<string>();
 
 		castingArea.Select();
 
@@ -66,8 +70,6 @@ public class Spellbook : MonoBehaviour
 		if (PauseControl.gameIsPaused)
 			return;
 
-		if (!TurnControl.isPlayerTurn)
-			return;
 
 		foreach (Spell spell in spells)
 		{
@@ -77,9 +79,17 @@ public class Spellbook : MonoBehaviour
 				return;
 			}
 		}
+
+		if (!TurnControl.isPlayerTurn)
+			return;
+
 		int damage = dict.Search(typedSpell.ToUpper());
-		if (damage > 0)
+		if (damage > 0 && !usedSpells.Contains(typedSpell.ToUpper()))
+		{
+			UIEventManager.current.UsedSpell(typedSpell.ToUpper());
+			usedSpells.Add(typedSpell.ToUpper());
 			genSpell.Invoke(damage);
+		}
 	}
 
 }

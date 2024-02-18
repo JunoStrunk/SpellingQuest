@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class TurnControl : MonoBehaviour
 {
     static UnityEvent onTurnChange;
-    public static bool isPlayerTurn = true;
+    public static bool isPlayerTurn;
     public void changeTurn()
     {
         isPlayerTurn = !isPlayerTurn;
@@ -23,6 +23,6 @@ public class TurnControl : MonoBehaviour
         {
             onTurnChange.AddListener(enemy.GetComponent<EnemyAttack>().StartStopTimer);
         }
-        Debug.Log(isPlayerTurn);
+        isPlayerTurn = true;
     }
 }

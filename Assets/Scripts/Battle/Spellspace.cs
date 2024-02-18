@@ -12,6 +12,11 @@ public class Spellspace : MonoBehaviour
 
     public SceneManage sceneManage;
 
+    void Start()
+    {
+        sceneManage = GameObject.Find("Managers").GetComponent<SceneManage>();
+    }
+
     public void EnemyAttack(Attack attack)
     {
         attack.Damage();

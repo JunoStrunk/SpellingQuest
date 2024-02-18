@@ -9,7 +9,7 @@ public class ToBattle : MonoBehaviour
 
     void Start()
     {
-        scene = GameObject.Find("SceneManager").GetComponent<SceneManage>();
+        scene = GameObject.Find("Managers").GetComponent<SceneManage>();
     }
 
     private void OnTriggerEnter(Collider other)
