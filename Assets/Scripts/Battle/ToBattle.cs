@@ -5,18 +5,31 @@ using UnityEngine;
 
 public class ToBattle : MonoBehaviour
 {
-    private SceneManage scene;
+    private BattleSceneManager scene;
+
+    Animator enemy;
+    SpriteRenderer ren;
 
     void Start()
     {
-        scene = GameObject.Find("Managers").GetComponent<SceneManage>();
+        enemy = GetComponent<Animator>();
+        ren = GetComponent<SpriteRenderer>();
+        ren.enabled = false;
+        scene = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            scene.LoadBattle();
+            ren.enabled = true;
+            enemy.SetTrigger("Appear");
         }
+    }
+
+    public void LoadBattle()
+    {
+        scene.LoadBattle();
+        Destroy(this.gameObject);
     }
 }

@@ -16,6 +16,9 @@ public class EnemyAttack : MonoBehaviour
     float attackPause;
 
     [SerializeField]
+    bool continuousAttack;
+
+    [SerializeField]
     List<Attack> attacks;
 
     AttackEvent onAttack;
@@ -26,7 +29,8 @@ public class EnemyAttack : MonoBehaviour
             onAttack = new AttackEvent();
         onAttack.AddListener(GameObject.FindGameObjectWithTag("Spellspace").GetComponent<Spellspace>().EnemyAttack);
         enemyStats = GetComponent<EnemyStats>();
-        enemyStats.attackTimer.SetFill(1.0f);
+        if (enemyStats.attackTimer != null)
+            enemyStats.attackTimer.SetFill(1.0f);
     }
 
     public void Attack()
@@ -50,11 +54,15 @@ public class EnemyAttack : MonoBehaviour
         while (currTime <= attackPause)
         {
             currTime += Time.deltaTime;
-            enemyStats.attackTimer.UpdateFill(currTime / attackPause);
+            if (enemyStats.attackTimer != null)
+                enemyStats.attackTimer.UpdateFill(currTime / attackPause);
             yield return null;
         }
         Attack();
-        enemyStats.attackTimer.SetFill(1.0f);
+        if (enemyStats.attackTimer != null)
+            enemyStats.attackTimer.SetFill(1.0f);
+        if (continuousAttack)
+            StartCoroutine(AttackTimer());
         yield return null;
     }
 
@@ -65,7 +73,8 @@ public class EnemyAttack : MonoBehaviour
         else
         {
             StopCoroutine(AttackTimer());
-            enemyStats.attackTimer.SetFill(1.0f);
+            if (enemyStats.attackTimer != null)
+                enemyStats.attackTimer.SetFill(1.0f);
         }
     }
 

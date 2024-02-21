@@ -5,16 +5,20 @@ using UnityEngine;
 
 public class Spellspace : MonoBehaviour
 {
-    public EnemyStats activeEnemy; //Replace with list later on??
+    [SerializeField]
+    public bool runningBattle = false;
+    List<EnemyStats> TotalEnemies;
+    public EnemyStats activeEnemy;
     public PlayerStats activePlayer;
 
     public TurnControl turnControl;
 
-    public SceneManage sceneManage;
+    public BattleSceneManager sceneManage;
 
     void Start()
     {
-        sceneManage = GameObject.Find("Managers").GetComponent<SceneManage>();
+        TotalEnemies = new List<EnemyStats>();
+        sceneManage = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
     }
 
     public void EnemyAttack(Attack attack)
@@ -30,6 +34,7 @@ public class Spellspace : MonoBehaviour
         if (spell.spellType == Spell.SpellType.Attack)
         {
             AttackSpell attackSpell = spell as AttackSpell;
+            SetActiveEnemy(spell.incantation);
             activeEnemy.Damage(attackSpell.attack.damage);
         }
         else if (spell.spellType == Spell.SpellType.Avoid)
@@ -41,11 +46,14 @@ public class Spellspace : MonoBehaviour
             HealSpell healSpell = spell as HealSpell;
             activePlayer.Heal(healSpell.healing);
         }
-        TryChangeTurn();
+        //if not airtime
+        if (TurnControl.isPlayerTurn)
+            TryChangeTurn();
     }
 
-    public void GenSpell(int dmg)
+    public void GenSpell(int dmg, string spell)
     {
+        SetActiveEnemy(spell);
         Debug.Log(dmg + " General Spell!");
         activeEnemy.Damage(dmg);
         TryChangeTurn();
@@ -57,6 +65,22 @@ public class Spellspace : MonoBehaviour
             sceneManage.LoadLose();
         else
             sceneManage.LoadWin();
+
+    }
+
+    void SetActiveEnemy(string spell)
+    {
+        if (!runningBattle)
+            return;
+
+        foreach (EnemyStats enemy in TotalEnemies)
+        {
+            if (enemy.visible && enemy.word == spell)
+            {
+                activeEnemy = enemy;
+                break;
+            }
+        }
 
     }
 

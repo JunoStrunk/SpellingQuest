@@ -10,7 +10,7 @@ public class SpellEvent : UnityEvent<Spell>
 }
 
 [System.Serializable]
-public class GenSpellEvent : UnityEvent<int>
+public class GenSpellEvent : UnityEvent<int, string>
 {
 }
 
@@ -83,12 +83,14 @@ public class Spellbook : MonoBehaviour
 		if (!TurnControl.isPlayerTurn)
 			return;
 
-		int damage = dict.Search(typedSpell.ToUpper());
-		if (damage > 0 && !usedSpells.Contains(typedSpell.ToUpper()))
+		typedSpell = typedSpell.ToUpper();
+
+		int damage = dict.Search(typedSpell);
+		if (damage > 0 && !usedSpells.Contains(typedSpell))
 		{
-			UIEventManager.current.UsedSpell(typedSpell.ToUpper());
-			usedSpells.Add(typedSpell.ToUpper());
-			genSpell.Invoke(damage);
+			UIEventManager.current.UsedSpell(typedSpell);
+			usedSpells.Add(typedSpell);
+			genSpell.Invoke(damage, typedSpell);
 		}
 	}
 
