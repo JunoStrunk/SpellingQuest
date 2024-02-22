@@ -17,11 +17,11 @@ public class DictSearch : MonoBehaviour
 		// TextAsset dictText = Resources.Load("dictionary") as TextAsset;
 		dict = new Dictionary<string, int>();
 
-		string[] lines = dictText.text.Split(new char[] { '\n', '\r' });
+		string[] lines = dictText.text.Split('\n');
 
 		for (int i = 0; i < lines.Length; i++)
 		{
-			dict.Add(lines[i], lines[i].Length);
+			dict.Add(lines[i].Remove(lines[i].Length - 1, 1), lines[i].Length);
 		}
 
 		// path = Application.persistentDataPath + "/dictionary.txt";

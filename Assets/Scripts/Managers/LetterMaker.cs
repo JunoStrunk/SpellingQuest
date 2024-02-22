@@ -30,7 +30,6 @@ public class LetterMaker : MonoBehaviour
         }
         RectTransform rect = GetComponent<RectTransform>();
         float angleInc = 360 / letters.Count;
-        Debug.Log(angleInc);
         for (int i = 0; i < letters.Count; i++)
         {
             Vector3 letterPos = new Vector3(rect.anchoredPosition.x + radius * Mathf.Cos(angle), rect.anchoredPosition.y + radius * Mathf.Sin(angle), 0f);
