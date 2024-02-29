@@ -21,7 +21,13 @@ public class DictSearch : MonoBehaviour
 
 		for (int i = 0; i < lines.Length; i++)
 		{
-			dict.Add(lines[i].Remove(lines[i].Length - 1, 1), lines[i].Length);
+			// Debug.Log(lines[i]);
+
+			//Mac
+			dict.Add(lines[i], lines[i].Length);
+
+			//Windows
+			// dict.Add(lines[i].Remove(lines[i].Length - 1, 1), lines[i].Length);
 		}
 
 		// path = Application.persistentDataPath + "/dictionary.txt";

@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.37, y: 164.02, z: 0}
-  m_LocalScale: {x: -0.58458, y: 0.58458, z: 0.58458}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,6 +124,8 @@ MonoBehaviour:
   id: 1
   health: {fileID: 0}
   attackTimer: {fileID: 0}
+  word: 
+  visible: 0
 --- !u!114 &3453491830743957237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPause: 5
+  continuousAttack: 0
   attacks:
   - {fileID: 11400000, guid: c6c81b222edfb45a499470fd5507c05c, type: 2}
 --- !u!114 &6646234663672276050

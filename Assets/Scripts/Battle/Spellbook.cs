@@ -26,6 +26,12 @@ public class Spellbook : MonoBehaviour
 	TMP_InputField castingArea;
 
 	[SerializeField]
+	TempShowing usedWordWarning;
+
+	[SerializeField]
+	TempShowing noWordWarning;
+
+	[SerializeField]
 	List<Spell> spells;
 	List<string> usedSpells;
 	DictSearch dict;
@@ -43,7 +49,9 @@ public class Spellbook : MonoBehaviour
 		castingArea.Select();
 
 		castSpell.AddListener(GameObject.Find("Spellspace").GetComponent<Spellspace>().PlayerSpell);
+		castSpell.AddListener(GameObject.Find("SpellEffect").GetComponent<SpellEffect>().cast);
 		genSpell.AddListener(GameObject.Find("Spellspace").GetComponent<Spellspace>().GenSpell);
+		genSpell.AddListener(GameObject.Find("SpellEffect").GetComponent<SpellEffect>().cast);
 	}
 
 	public void Update()
@@ -91,6 +99,14 @@ public class Spellbook : MonoBehaviour
 			UIEventManager.current.UsedSpell(typedSpell);
 			usedSpells.Add(typedSpell);
 			genSpell.Invoke(damage, typedSpell);
+		}
+		else if (damage > 0)
+		{
+			StartCoroutine(usedWordWarning.ShowTemp());
+		}
+		else
+		{
+			StartCoroutine(noWordWarning.ShowTemp());
 		}
 	}
 

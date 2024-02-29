@@ -7,9 +7,11 @@ public class BattleSceneManager : MonoBehaviour
 {
     Canvas dungeonCanvas;
     Camera mainCam;
+    PlayerMovement playerMove;
 
     void Start()
     {
+        playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         dungeonCanvas = GameObject.Find("DungeonCanvas").GetComponent<Canvas>();
         mainCam = Camera.main;
         DontDestroyOnLoad(this.gameObject);
@@ -25,6 +27,7 @@ public class BattleSceneManager : MonoBehaviour
 
     public void LoadWin()
     {
+        playerMove.CanPlayerMove(true);
         SceneManager.UnloadSceneAsync(2);
         mainCam.enabled = true;
         dungeonCanvas.gameObject.SetActive(true);

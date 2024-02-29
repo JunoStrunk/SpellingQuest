@@ -23,8 +23,11 @@ public class EnemyAttack : MonoBehaviour
 
     AttackEvent onAttack;
 
+    Animator anim;
+
     public void Awake()
     {
+        anim = GetComponent<Animator>();
         if (onAttack == null)
             onAttack = new AttackEvent();
         onAttack.AddListener(GameObject.FindGameObjectWithTag("Spellspace").GetComponent<Spellspace>().EnemyAttack);
@@ -43,6 +46,7 @@ public class EnemyAttack : MonoBehaviour
 
     void DealDamage()
     {
+        anim.SetTrigger("Attack");
         Attack currAttack = attacks[UnityEngine.Random.Range(0, attacks.Count)];
         onAttack?.Invoke(currAttack);
     }

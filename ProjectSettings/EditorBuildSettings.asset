@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Testing/MAIN.unity
+    path: Assets/Scenes/MAIN.unity
     guid: 22f6786b7359b4bf98c57e44add1bb0a
   - enabled: 1
-    path: Assets/Scenes/Testing/Dungeon.unity
+    path: Assets/Scenes/Dungeon.unity
     guid: 690fefb05005c4a76bcee6dca4628402
   - enabled: 1
-    path: Assets/Scenes/Testing/Wordscapes.unity
+    path: Assets/Scenes/Battle.unity
     guid: ec0b856c310c3435db2cc8c8c8e64a01
   - enabled: 1
-    path: Assets/Scenes/Testing/YOUWIN.unity
+    path: Assets/Scenes/YOUWIN.unity
     guid: e8c0cfe80ea964595b0378ba0dff99d7
   - enabled: 1
-    path: Assets/Scenes/Testing/YOULOSE.unity
+    path: Assets/Scenes/YOULOSE.unity
     guid: 09a0bb9b98558403ba9ef8b794f7cc69
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 64498fea65f4a4010afe9a7b1095d295,

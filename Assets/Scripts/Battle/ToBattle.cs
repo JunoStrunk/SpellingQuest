@@ -23,6 +23,7 @@ public class ToBattle : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ren.enabled = true;
+            other.GetComponent<PlayerMovement>().CanPlayerMove(false);
             enemy.SetTrigger("Appear");
         }
     }
