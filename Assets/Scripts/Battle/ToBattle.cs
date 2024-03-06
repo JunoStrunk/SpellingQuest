@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ToBattle : MonoBehaviour
 {
-    private BattleSceneManager scene;
+    UnityEvent onToBattle;
 
     Animator enemy;
     SpriteRenderer ren;
 
     void Start()
     {
+        if (onToBattle == null)
+            onToBattle = new UnityEvent();
         enemy = GetComponent<Animator>();
         ren = GetComponent<SpriteRenderer>();
         ren.enabled = false;
-        scene = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
+        onToBattle.AddListener(GameObject.Find("Transition").GetComponent<Transition>().LoadBattleNonEnum);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +33,7 @@ public class ToBattle : MonoBehaviour
 
     public void LoadBattle()
     {
-        scene.LoadBattle();
+        onToBattle.Invoke();
         Destroy(this.gameObject);
     }
 }

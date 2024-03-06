@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MAIN.unity
     guid: 22f6786b7359b4bf98c57e44add1bb0a
   - enabled: 1
+    path: Assets/Scenes/Tutorial_Battle.unity
+    guid: b649325298e644e57ae57c9bae35ebce
+  - enabled: 1
     path: Assets/Scenes/Dungeon.unity
     guid: 690fefb05005c4a76bcee6dca4628402
   - enabled: 1

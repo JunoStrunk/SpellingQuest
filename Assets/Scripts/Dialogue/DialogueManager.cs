@@ -49,8 +49,7 @@ public class DialogueManager : MonoBehaviour
      * make sure to change this variable appropriately and to make sure the movement script has a way to prevent character movement!
     */
     private PlayerMovement player;
-
-    /* ^ IMPORTANT IMPORTANT IMPORTANT IMPORTANT ^*/
+    private PauseControl pauseControl;
 
     [HideInInspector]
     public DialogueTrigger currentTrigger;
@@ -58,7 +57,7 @@ public class DialogueManager : MonoBehaviour
     private bool levelBool = false;
     private int levelIndex;
 
-    private bool isInDialouge = false;
+    public bool isInDialouge = false;
     private bool isTyping = false;
     private bool cancelTyping = false;
 
@@ -74,6 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Options")]
     public bool freezePlayerOnDialogue = true;
+    public bool pauseOnDialogue = false;
 
     private void Start()
     {

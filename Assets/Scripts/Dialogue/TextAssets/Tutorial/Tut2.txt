@@ -1,0 +1,4 @@
+[NAME=Wiz][SPEAKERSPRITE=Wiz] The rat attacked back!
+[NAME=Wiz][SPEAKERSPRITE=Wiz] Do you see the blue circle?
+[NAME=Wiz][SPEAKERSPRITE=Wiz] While an enemy attacks you can cast ~Special Spells~. This blue circle shows this short time.
+[NAME=Wiz][SPEAKERSPRITE=Wiz] You can check for special spells in your spellbook.

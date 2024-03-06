@@ -300,7 +300,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1813587548}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
-        m_MethodName: LoadDungeon
+        m_MethodName: LoadTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

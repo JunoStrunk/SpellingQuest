@@ -2,12 +2,14 @@ using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 //A script by Michael O'Connell, extended by Benjamin Cohen
 
 
 public class DialogueTrigger : MonoBehaviour
 {
+    public bool inTut = false;
     //Attach this script to an empty gameobject with a 2D collider set to trigger
     DialogueManager manager;
     public TextAsset TextFileAsset; // your imported text file for your NPC
@@ -25,6 +27,17 @@ public class DialogueTrigger : MonoBehaviour
     private void Start()
     {
         manager = FindObjectOfType<DialogueManager>();
+        UIEventManager.current.onPlayerTap += NextDialogue;
+    }
+
+    void OnDisable()
+    {
+        UIEventManager.current.onPlayerTap -= NextDialogue;
+    }
+
+    void OnDestroy()
+    {
+        UIEventManager.current.onPlayerTap -= NextDialogue;
     }
 
     public void NextDialogue()
@@ -86,6 +99,11 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (inTut)
+        {
+            manager.currentTrigger = this;
+            TriggerDialogue();
+        }
         if (other.CompareTag("Player") && !hasBeenUsed)
         {
             manager.currentTrigger = this;

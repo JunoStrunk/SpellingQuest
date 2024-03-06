@@ -13,11 +13,6 @@ public class UsedSpellsUI : MonoBehaviour
         UIEventManager.current.onUsedSpell += AddUsedSpell;
     }
 
-    void OnDisable()
-    {
-        UIEventManager.current.onUsedSpell -= AddUsedSpell;
-    }
-
     void OnDestroy()
     {
         UIEventManager.current.onUsedSpell -= AddUsedSpell;

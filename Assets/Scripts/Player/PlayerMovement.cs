@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public bool playerCanMove;
+    public bool inTut = false;
     private Player playerInput;
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerInput.Enable();
         playerInput.PlayerMain.Tap.performed += Tapped;
-        playerCanMove = true;
+        // playerCanMove = true;
     }
 
     private void OnDisable()
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Tapped(InputAction.CallbackContext cxt)
     {
-        Debug.Log("Getting tap");
+        UIEventManager.current.PlayerTap();
     }
 
     public void CanPlayerMove(bool move)
@@ -51,11 +52,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        camMain = Camera.main.transform;
+        if (!inTut)
+            camMain = Camera.main.transform;
     }
 
     void Update()
     {
+        if (!playerCanMove)
+            return;
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -65,8 +69,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
         Vector3 move = camMain.forward * movementInput.y + camMain.right * movementInput.x;
         move.y = 0f;
-        if (playerCanMove)
-            controller.Move(playerSpeed * Time.deltaTime * move);
+        controller.Move(playerSpeed * Time.deltaTime * move);
 
         if (move != Vector3.zero)
         {
@@ -74,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
-        if (playerCanMove)
-            controller.Move(playerVelocity * Time.deltaTime);
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 }

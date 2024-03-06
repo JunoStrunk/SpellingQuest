@@ -12,6 +12,7 @@ public class MoveEvent : UnityEvent<Vector3>
 
 public class TouchManager : MonoBehaviour
 {
+    DialogueManager dialogue;
     [HideInInspector]
     public MoveEvent onTouchMove;
     [HideInInspector]
@@ -32,6 +33,7 @@ public class TouchManager : MonoBehaviour
 
     void Start()
     {
+        dialogue = FindObjectOfType<DialogueManager>();
         Transform letterContainer = GameObject.FindGameObjectWithTag("Letters").transform;
         onTouchEnd.AddListener(GameObject.Find("Spellbook").GetComponent<Spellbook>().CollectInput);
         // onTouchMove.AddListener(letterContainer.GetComponent<LineBehavior>().MovePoint);
@@ -44,6 +46,8 @@ public class TouchManager : MonoBehaviour
 
     void Update()
     {
+        if (dialogue && dialogue.isInDialouge)
+            return;
         if (Touch.activeFingers.Count == 1)
         {
             Touch activeTouch = Touch.activeFingers[0].currentTouch;

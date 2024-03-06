@@ -1,0 +1,7 @@
+[NAME=Wiz][SPEAKERSPRITE=Wiz] Looks like you've found yourself in a battle with a rat!
+[NAME=Wiz][SPEAKERSPRITE=Wiz] Do you know how to fight?
+[NAME=Wiz][SPEAKERSPRITE=Wiz] ...
+[NAME=Wiz][SPEAKERSPRITE=Wiz] Doesn't seem so.
+[NAME=Wiz][SPEAKERSPRITE=Wiz] Try spelling out a word on the disk below by dragging your finger between the letters.
+[NAME=Wiz][SPEAKERSPRITE=Wiz] When you've spelled your word, just release to cast the spell!
+[NAME=Wiz][SPEAKERSPRITE=Wiz] Maybe try 'fire'

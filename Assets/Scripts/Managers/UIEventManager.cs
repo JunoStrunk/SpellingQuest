@@ -30,4 +30,25 @@ public class UIEventManager : MonoBehaviour
             onUsedSpell(spell);
     }
     //=============================-----=======================
+
+    //========================== Add Word to Used Spells =======================
+    public event Action onEnemyAttack;
+    public void EnemyAttack()
+    {
+        if (onEnemyAttack != null)
+        {
+            Debug.Log("EventTriggered");
+            onEnemyAttack();
+        }
+    }
+    //=============================-----=======================
+
+    //========================== PlayerTap =======================
+    public event Action onPlayerTap;
+    public void PlayerTap()
+    {
+        if (onPlayerTap != null)
+            onPlayerTap();
+    }
+    //=============================-----=======================
 }

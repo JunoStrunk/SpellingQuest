@@ -25,11 +25,11 @@
                 },
                 {
                     "name": "Tap",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "628c59be-9b16-4793-8804-a342e6148318",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -114,8 +114,8 @@
                 {
                     "name": "",
                     "id": "edcb8853-6d08-43ea-a5d3-2f1a4b2bc6f8",
-                    "path": "<Touchscreen>/primaryTouch",
-                    "interactions": "",
+                    "path": "<Pointer>/press",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "Tap",

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spellspace : MonoBehaviour
 {
@@ -13,12 +14,19 @@ public class Spellspace : MonoBehaviour
 
     public TurnControl turnControl;
 
-    public BattleSceneManager sceneManage;
+    UnityEvent onReturnDungeon;
+    BattleSceneManager scene;
+
+    [SerializeField]
+    GameObject transition;
 
     void Start()
     {
+        if (onReturnDungeon == null)
+            onReturnDungeon = new UnityEvent();
         TotalEnemies = new List<EnemyStats>();
-        sceneManage = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
+        scene = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
+        onReturnDungeon.AddListener(transition.GetComponent<Transition>().LoadDungeonNonEnum);
     }
 
     public void EnemyAttack(Attack attack)
@@ -62,9 +70,9 @@ public class Spellspace : MonoBehaviour
     public void SomethingDied(GameObject thing)
     {
         if (thing.CompareTag("Player"))
-            sceneManage.LoadLose();
+            scene.LoadLose();
         else
-            sceneManage.LoadWin();
+            onReturnDungeon.Invoke();
 
     }
 

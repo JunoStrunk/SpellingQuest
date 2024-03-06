@@ -48,6 +48,7 @@ public class EnemyAttack : MonoBehaviour
     {
         anim.SetTrigger("Attack");
         Attack currAttack = attacks[UnityEngine.Random.Range(0, attacks.Count)];
+        UIEventManager.current.EnemyAttack();
         onAttack?.Invoke(currAttack);
     }
 

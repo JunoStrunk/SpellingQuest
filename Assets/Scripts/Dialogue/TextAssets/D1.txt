@@ -1,1 +1,1 @@
-[NAME=Wiz][SPEAKERSPRITE=Wiz] This is a test!
+[NAME=Wiz][SPEAKERSPRITE=Wiz] Try to find all the rats in the dungeon!

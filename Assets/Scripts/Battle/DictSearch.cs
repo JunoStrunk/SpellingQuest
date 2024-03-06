@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DictSearch : MonoBehaviour
@@ -29,23 +26,6 @@ public class DictSearch : MonoBehaviour
 			//Windows
 			// dict.Add(lines[i].Remove(lines[i].Length - 1, 1), lines[i].Length);
 		}
-
-		// path = Application.persistentDataPath + "/dictionary.txt";
-		// if (File.Exists(path))
-		// {
-		// 	using (StreamReader sr = File.OpenText(path))
-		// 	{
-		// 		string s;
-		// 		while ((s = sr.ReadLine()) != null)
-		// 		{
-		// 			dict.Add(s, s.Length);
-		// 		}
-		// 	}
-		// }
-		// else
-		// {
-		// 	Debug.Log("File does not exist");
-		// }
 	}
 
 	public int Search(string word)

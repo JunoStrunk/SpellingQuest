@@ -22,13 +22,13 @@ public class BattleSceneManager : MonoBehaviour
         Debug.Log("Loading Battle");
         mainCam.enabled = false;
         dungeonCanvas.gameObject.SetActive(false);
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
     }
 
     public void LoadWin()
     {
         playerMove.CanPlayerMove(true);
-        SceneManager.UnloadSceneAsync(2);
+        SceneManager.UnloadSceneAsync(3);
         mainCam.enabled = true;
         dungeonCanvas.gameObject.SetActive(true);
         Debug.Log("Loading Win");
@@ -38,6 +38,6 @@ public class BattleSceneManager : MonoBehaviour
     public void LoadLose()
     {
         Debug.Log("Loading Lose");
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
     }
 }
