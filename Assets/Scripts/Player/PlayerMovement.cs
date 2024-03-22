@@ -18,11 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private float gravityValue = -9.81f;
 
     private Transform camMain;
+    private Animator anim;
 
     private void Awake()
     {
         playerInput = new Player();
         controller = GetComponent<CharacterController>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -73,8 +75,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (move != Vector3.zero)
         {
+            anim.SetBool("Moving", true);
             gameObject.transform.forward = move;
         }
+        else
+            anim.SetBool("Moving", false);
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
