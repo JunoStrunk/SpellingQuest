@@ -21,7 +21,10 @@ public class Transition : MonoBehaviour
         anim = this.GetComponent<Animator>();
         img = this.GetComponent<UnityEngine.UI.Image>();
         img.enabled = true;
-        battleSceneManager = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
+        if (isDungeon)
+        {
+            battleSceneManager = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
+        }
         sceneManage = GameObject.Find("SceneManager").GetComponent<SceneManage>();
     }
 
