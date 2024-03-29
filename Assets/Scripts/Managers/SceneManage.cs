@@ -22,4 +22,10 @@ public class SceneManage : MonoBehaviour
         Debug.Log("Loading Win");
         SceneManager.LoadScene(5);
     }
+
+    public void LoadLose()
+    {
+        Debug.Log("Loading Lose");
+        SceneManager.LoadScene(5);
+    }
 }

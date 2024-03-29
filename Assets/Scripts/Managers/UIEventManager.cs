@@ -32,6 +32,15 @@ public class UIEventManager : MonoBehaviour
     //=============================-----=======================
 
     //========================== Add Word to Used Spells =======================
+    public event Action<bool> onToggleSpellbookTabs;
+    public void ToggleSpellbookTabs(bool spellShowing)
+    {
+        if (onToggleSpellbookTabs != null)
+            onToggleSpellbookTabs(spellShowing);
+    }
+    //=============================-----=======================
+
+    //========================== Add Word to Used Spells =======================
     public event Action onEnemyAttack;
     public void EnemyAttack()
     {

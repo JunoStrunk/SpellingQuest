@@ -15,17 +15,22 @@ public class Spellspace : MonoBehaviour
     public TurnControl turnControl;
 
     UnityEvent onReturnDungeon;
-    BattleSceneManager scene;
+    UnityEvent onPlayerDeath;
 
     [SerializeField]
     GameObject transition;
 
+    bool checkingDied = false;
+
     void Start()
     {
+        checkingDied = false;
         if (onReturnDungeon == null)
             onReturnDungeon = new UnityEvent();
+        if (onPlayerDeath == null)
+            onPlayerDeath = new UnityEvent();
         TotalEnemies = new List<EnemyStats>();
-        scene = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
+        onPlayerDeath.AddListener(GameObject.Find("SceneManager").GetComponent<SceneManage>().LoadLose);
         onReturnDungeon.AddListener(transition.GetComponent<Transition>().LoadDungeonNonEnum);
     }
 
@@ -69,8 +74,9 @@ public class Spellspace : MonoBehaviour
 
     public void SomethingDied(GameObject thing)
     {
+        checkingDied = true;
         if (thing.CompareTag("Player"))
-            scene.LoadLose();
+            onPlayerDeath.Invoke();
         else
             onReturnDungeon.Invoke();
 
@@ -94,6 +100,7 @@ public class Spellspace : MonoBehaviour
 
     void TryChangeTurn()
     {
-        turnControl.changeTurn();
+        if (!checkingDied)
+            turnControl.changeTurn();
     }
 }

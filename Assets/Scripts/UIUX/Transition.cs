@@ -21,17 +21,17 @@ public class Transition : MonoBehaviour
         anim = this.GetComponent<Animator>();
         img = this.GetComponent<UnityEngine.UI.Image>();
         img.enabled = true;
-        if (isDungeon)
-        {
+        if (!isTutorial)
             battleSceneManager = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
-        }
         sceneManage = GameObject.Find("SceneManager").GetComponent<SceneManage>();
     }
 
     public void LoadDungeonNonEnum()
     {
-        if (battleSceneManager)
+        if (battleSceneManager || isTutorial)
+        {
             anim.SetTrigger("LoadDungeon");
+        }
     }
 
     public IEnumerator LoadDungeon()

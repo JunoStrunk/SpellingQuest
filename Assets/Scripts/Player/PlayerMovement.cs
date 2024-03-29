@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public bool playerCanMove;
-    public bool inTut = false;
+    public bool dialogueBattle = false;
     private Player playerInput;
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        if (!inTut)
+        if (!dialogueBattle)
             camMain = Camera.main.transform;
     }
 

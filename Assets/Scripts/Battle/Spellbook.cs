@@ -36,6 +36,8 @@ public class Spellbook : MonoBehaviour
 	List<string> usedSpells;
 	DictSearch dict;
 
+	bool inCircle = false;
+
 	void Start()
 	{
 		dict = GetComponent<DictSearch>();
@@ -57,15 +59,26 @@ public class Spellbook : MonoBehaviour
 	public void Update()
 	{
 		if (!PauseControl.gameIsPaused && Input.GetKeyDown(KeyCode.Return))
+		{
+			inCircle = true;
 			CollectInput();
+		}
+	}
+
+	public void touched()
+	{
+		inCircle = true;
 	}
 
 	public void CollectInput()
 	{
+		if (!inCircle)
+			return;
 		ValidateSpell(castingArea.text.ToLower());
 		castingArea.text = string.Empty;
 		castingArea.ActivateInputField();
 		castingArea.Select();
+		inCircle = false;
 	}
 
 	public void AddLetter(Letter letter)
@@ -109,5 +122,7 @@ public class Spellbook : MonoBehaviour
 			StartCoroutine(noWordWarning.ShowTemp());
 		}
 	}
+
+
 
 }

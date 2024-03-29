@@ -9,15 +9,13 @@ public class ToBattle : MonoBehaviour
     UnityEvent onToBattle;
 
     Animator enemy;
-    SpriteRenderer ren;
 
     void Start()
     {
         if (onToBattle == null)
             onToBattle = new UnityEvent();
         enemy = GetComponent<Animator>();
-        ren = GetComponent<SpriteRenderer>();
-        ren.enabled = false;
+        transform.GetChild(0).gameObject.SetActive(false);
         onToBattle.AddListener(GameObject.Find("Transition").GetComponent<Transition>().LoadBattleNonEnum);
     }
 
@@ -25,8 +23,8 @@ public class ToBattle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ren.enabled = true;
             other.GetComponent<PlayerMovement>().CanPlayerMove(false);
+            transform.GetChild(0).gameObject.SetActive(true);
             enemy.SetTrigger("Appear");
         }
     }
