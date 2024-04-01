@@ -22,12 +22,18 @@ public class UIEventManager : MonoBehaviour
     // }
     //=============================-----=======================
 
+
     //========================== Add Word to Used Spells =======================
     public event Action<string> onUsedSpell;
     public void UsedSpell(string spell)
     {
         if (onUsedSpell != null)
+        {
+            Debug.Log("UsedSpell NotNull??");
             onUsedSpell(spell);
+        }
+        else
+            Debug.Log("UsedSpell Null??");
     }
     //=============================-----=======================
 
@@ -40,13 +46,13 @@ public class UIEventManager : MonoBehaviour
     }
     //=============================-----=======================
 
+
     //========================== Add Word to Used Spells =======================
     public event Action onEnemyAttack;
     public void EnemyAttack()
     {
         if (onEnemyAttack != null)
         {
-            Debug.Log("EventTriggered");
             onEnemyAttack();
         }
     }

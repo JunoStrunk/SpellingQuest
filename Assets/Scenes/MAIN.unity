@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -358,6 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851257281}
   - component: {fileID: 851257282}
+  - component: {fileID: 851257283}
   m_Layer: 0
   m_Name: VideoPlayer
   m_TagString: Untagged
@@ -399,7 +400,7 @@ VideoPlayer:
   m_RenderMode: 2
   m_AspectRatio: 2
   m_DataSource: 0
-  m_TimeUpdateMode: 0
+  m_TimeUpdateMode: 2
   m_PlaybackSpeed: 0.8
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
@@ -411,9 +412,21 @@ VideoPlayer:
   m_PlayOnAwake: 1
   m_SkipOnDrop: 0
   m_Looping: 1
-  m_WaitForFirstFrame: 0
+  m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &851257283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851257280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef703d654b3f44739ee735773ad5366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963563465
 GameObject:
   m_ObjectHideFlags: 0

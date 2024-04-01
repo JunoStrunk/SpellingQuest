@@ -669,7 +669,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: c4cafe74566364352a1d1f22c8a897ef, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -2931,6 +2931,7 @@ GameObject:
   - component: {fileID: 1160467370}
   - component: {fileID: 1160467369}
   - component: {fileID: 1160467372}
+  - component: {fileID: 1160467373}
   m_Layer: 5
   m_Name: SpellBookButton
   m_TagString: Untagged
@@ -3064,6 +3065,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellBookUI: {fileID: 1180551909}
+--- !u!114 &1160467373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160467366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e0e9f4cc4904bcda45f6a3fbf6c030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpellText: {fileID: 7359757262336650170, guid: 92533dd4000f548bc91de87b77c5e7f1,
+    type: 3}
+  usedSpellContainer: {fileID: 2655514017135658920}
 --- !u!1 &1161869472
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,8 +3139,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4cafe74566364352a1d1f22c8a897ef, type: 2}
+  m_sharedMaterial: {fileID: 1721015882657797827, guid: c4cafe74566364352a1d1f22c8a897ef,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4026,8 +4043,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4cafe74566364352a1d1f22c8a897ef, type: 2}
+  m_sharedMaterial: {fileID: 1721015882657797827, guid: c4cafe74566364352a1d1f22c8a897ef,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10562,16 +10580,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpellBookUI
       objectReference: {fileID: 0}
-    - target: {fileID: 8036123172045459561, guid: e2f54ab0d6e764eadb37de36829b3eb7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2f54ab0d6e764eadb37de36829b3eb7, type: 3}
+--- !u!224 &2655514017135658920 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6128321788321728096, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2655514017135658919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3159612344098762017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10646,12 +10665,12 @@ SceneRoots:
   m_Roots:
   - {fileID: 330005892}
   - {fileID: 1144135821}
+  - {fileID: 447614303}
   - {fileID: 1522485163}
   - {fileID: 13451629}
   - {fileID: 1580415812}
   - {fileID: 1792226961}
   - {fileID: 1378377033}
-  - {fileID: 447614303}
   - {fileID: 256241278}
   - {fileID: 942589261}
   - {fileID: 1104623626}

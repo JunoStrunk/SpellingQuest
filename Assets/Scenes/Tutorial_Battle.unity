@@ -338,8 +338,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4cafe74566364352a1d1f22c8a897ef, type: 2}
+  m_sharedMaterial: {fileID: 1721015882657797827, guid: c4cafe74566364352a1d1f22c8a897ef,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -994,6 +995,7 @@ GameObject:
   - component: {fileID: 360579774}
   - component: {fileID: 360579773}
   - component: {fileID: 360579772}
+  - component: {fileID: 360579776}
   m_Layer: 5
   m_Name: SpellBookButton
   m_TagString: Untagged
@@ -1127,6 +1129,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360579770}
   m_CullTransparentMesh: 1
+--- !u!114 &360579776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360579770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e0e9f4cc4904bcda45f6a3fbf6c030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpellText: {fileID: 7359757262336650170, guid: 92533dd4000f548bc91de87b77c5e7f1,
+    type: 3}
+  usedSpellContainer: {fileID: 1029171294}
 --- !u!1 &485175806
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,6 +3480,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb445db9ae11441438a5a650699b2acf, type: 3}
+--- !u!224 &1029171294 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6128321788321728096, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1255251011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1063502693
 GameObject:
   m_ObjectHideFlags: 0
@@ -9803,8 +9826,8 @@ RectTransform:
   - {fileID: 360579771}
   - {fileID: 983935438}
   - {fileID: 2130973459}
-  - {fileID: 332581139}
   - {fileID: 1255251012}
+  - {fileID: 332581139}
   - {fileID: 2118340979}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10284,7 +10307,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: c4cafe74566364352a1d1f22c8a897ef, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -10725,8 +10748,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4cafe74566364352a1d1f22c8a897ef, type: 2}
+  m_sharedMaterial: {fileID: 1721015882657797827, guid: c4cafe74566364352a1d1f22c8a897ef,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11243,6 +11267,7 @@ SceneRoots:
   - {fileID: 1009636279}
   - {fileID: 1019915398}
   - {fileID: 1708846589}
+  - {fileID: 843532509}
   - {fileID: 728567439}
   - {fileID: 607104217}
   - {fileID: 1553747160}
@@ -11254,5 +11279,4 @@ SceneRoots:
   - {fileID: 1538512300}
   - {fileID: 684974524}
   - {fileID: 114249891}
-  - {fileID: 843532509}
   - {fileID: 497617532}
