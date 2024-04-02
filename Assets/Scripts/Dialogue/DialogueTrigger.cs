@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public bool inTut = false;
+    public bool inBattle = false;
     //Attach this script to an empty gameobject with a 2D collider set to trigger
     DialogueManager manager;
     public TextAsset TextFileAsset; // your imported text file for your NPC
@@ -27,17 +27,17 @@ public class DialogueTrigger : MonoBehaviour
     private void Start()
     {
         manager = FindObjectOfType<DialogueManager>();
-        UIEventManager.current.onPlayerTap += NextDialogue;
+        GeneralEventManager.current.onPlayerTap += NextDialogue;
     }
 
     void OnDisable()
     {
-        UIEventManager.current.onPlayerTap -= NextDialogue;
+        GeneralEventManager.current.onPlayerTap -= NextDialogue;
     }
 
     void OnDestroy()
     {
-        UIEventManager.current.onPlayerTap -= NextDialogue;
+        GeneralEventManager.current.onPlayerTap -= NextDialogue;
     }
 
     public void NextDialogue()
@@ -99,7 +99,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (inTut)
+        if (inBattle)
         {
             manager.currentTrigger = this;
             TriggerDialogue();

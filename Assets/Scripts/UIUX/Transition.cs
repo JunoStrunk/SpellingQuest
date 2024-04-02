@@ -7,52 +7,29 @@ public class Transition : MonoBehaviour
 {
     Animator anim;
     UnityEngine.UI.Image img;
-    public bool isDungeon;
-    public bool isTutorial = false;
-
-    [SerializeField]
-    float pauseBeforeLoad = 2f;
-
-    SceneManage sceneManage;
-    BattleSceneManager battleSceneManager;
 
     void Start()
     {
         anim = this.GetComponent<Animator>();
         img = this.GetComponent<UnityEngine.UI.Image>();
         img.enabled = true;
-        if (!isTutorial)
-            battleSceneManager = GameObject.Find("SceneManager").GetComponent<BattleSceneManager>();
-        sceneManage = GameObject.Find("SceneManager").GetComponent<SceneManage>();
+        GeneralEventManager.current.onLoadDungeon += SlideIn;
+        GeneralEventManager.current.onLoadBattle += SlideIn;
     }
 
-    public void LoadDungeonNonEnum()
+    void OnDestroy()
     {
-        if (battleSceneManager || isTutorial)
-        {
-            anim.SetTrigger("LoadDungeon");
-        }
+        GeneralEventManager.current.onLoadDungeon -= SlideIn;
+        GeneralEventManager.current.onLoadBattle -= SlideIn;
     }
 
-    public IEnumerator LoadDungeon()
+    public void SlideIn(SceneType sceneType)
     {
-        yield return new WaitForSeconds(pauseBeforeLoad);
-        if (isTutorial)
-            sceneManage.LoadDungeon();
-        if (!isDungeon && !isTutorial)
-            battleSceneManager.LoadWin();
+        anim.SetTrigger("SlideIn");
     }
 
-    public void LoadBattleNonEnum()
+    public void SlideInNoArgs()
     {
-        if (battleSceneManager)
-            anim.SetTrigger("LoadBattle");
-    }
-
-    public IEnumerator LoadBattle()
-    {
-        yield return new WaitForSeconds(pauseBeforeLoad);
-        if (isDungeon)
-            battleSceneManager.LoadBattle();
+        anim.SetTrigger("SlideIn");
     }
 }

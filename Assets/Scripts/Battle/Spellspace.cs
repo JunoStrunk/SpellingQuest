@@ -14,24 +14,12 @@ public class Spellspace : MonoBehaviour
 
     public TurnControl turnControl;
 
-    UnityEvent onReturnDungeon;
-    UnityEvent onPlayerDeath;
-
-    [SerializeField]
-    GameObject transition;
-
     bool checkingDied = false;
 
     void Start()
     {
         checkingDied = false;
-        if (onReturnDungeon == null)
-            onReturnDungeon = new UnityEvent();
-        if (onPlayerDeath == null)
-            onPlayerDeath = new UnityEvent();
         TotalEnemies = new List<EnemyStats>();
-        onPlayerDeath.AddListener(GameObject.Find("SceneManager").GetComponent<SceneManage>().LoadLose);
-        onReturnDungeon.AddListener(transition.GetComponent<Transition>().LoadDungeonNonEnum);
     }
 
     public void EnemyAttack(Attack attack)
@@ -43,7 +31,6 @@ public class Spellspace : MonoBehaviour
 
     public void PlayerSpell(Spell spell)
     {
-        Debug.Log(spell.spellName);
         if (spell.spellType == Spell.SpellType.Attack)
         {
             AttackSpell attackSpell = spell as AttackSpell;
@@ -67,7 +54,6 @@ public class Spellspace : MonoBehaviour
     public void GenSpell(int dmg, string spell)
     {
         SetActiveEnemy(spell);
-        Debug.Log(dmg + " General Spell!");
         activeEnemy.Damage(dmg);
         TryChangeTurn();
     }
@@ -76,9 +62,12 @@ public class Spellspace : MonoBehaviour
     {
         checkingDied = true;
         if (thing.CompareTag("Player"))
-            onPlayerDeath.Invoke();
+            GeneralEventManager.current.PlayerDeath();
         else
-            onReturnDungeon.Invoke();
+        {
+            GeneralEventManager.current.LoadDungeon(SceneType.BackToDungeon);
+            GeneralEventManager.current.EnemyDefeat();
+        }
 
     }
 

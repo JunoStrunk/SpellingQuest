@@ -28,24 +28,9 @@ public class UIEventManager : MonoBehaviour
     public void UsedSpell(string spell)
     {
         if (onUsedSpell != null)
-        {
-            Debug.Log("UsedSpell NotNull??");
             onUsedSpell(spell);
-        }
-        else
-            Debug.Log("UsedSpell Null??");
     }
     //=============================-----=======================
-
-    //========================== Add Word to Used Spells =======================
-    public event Action<bool> onToggleSpellbookTabs;
-    public void ToggleSpellbookTabs(bool spellShowing)
-    {
-        if (onToggleSpellbookTabs != null)
-            onToggleSpellbookTabs(spellShowing);
-    }
-    //=============================-----=======================
-
 
     //========================== Add Word to Used Spells =======================
     public event Action onEnemyAttack;
@@ -58,12 +43,14 @@ public class UIEventManager : MonoBehaviour
     }
     //=============================-----=======================
 
-    //========================== PlayerTap =======================
-    public event Action onPlayerTap;
-    public void PlayerTap()
+    //========================== Drop Rock =======================
+    public event Action<Vector3, Transform> onRockDrop;
+    public void RockDrop(Vector3 pos, Transform rock)
     {
-        if (onPlayerTap != null)
-            onPlayerTap();
+        if (onRockDrop != null)
+        {
+            onRockDrop(pos, rock);
+        }
     }
     //=============================-----=======================
 }

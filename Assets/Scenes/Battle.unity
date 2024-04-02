@@ -1033,7 +1033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 447614303}
   - component: {fileID: 447614304}
-  - component: {fileID: 447614307}
+  - component: {fileID: 447614306}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Managers
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   onTouchEnd:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &447614307
+--- !u!114 &447614306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1083,9 +1083,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 447614302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42502f2c25388438684b7856e05efbab, type: 3}
+  m_Script: {fileID: 11500000, guid: 6636b2369a8fe4bc784fe88324cebb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  workingCircle: {fileID: 2655514017135658921}
 --- !u!1 &619694521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1556,6 @@ MonoBehaviour:
   activeEnemy: {fileID: 13451630}
   activePlayer: {fileID: 1522485160}
   turnControl: {fileID: 942589262}
-  transition: {fileID: 2109189970}
 --- !u!4 &942589261
 Transform:
   m_ObjectHideFlags: 0
@@ -9922,7 +9922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letterPrefab: {fileID: 7685687459349727338, guid: e25d050c115b04cc18589b3f75e9e822,
     type: 3}
-  letters: 460052004c0041004900530045004800
+  rw: {fileID: 447614306}
   radius: 300
   scaleMultiplier: 0.8
 --- !u!1 &2025774178
@@ -10326,12 +10326,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2109189968}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2109189970 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 367687373323318916, guid: 05166bd51b8e142ebbb60fef97e22104,
-    type: 3}
-  m_PrefabInstance: {fileID: 2109189968}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2147127455
 GameObject:
   m_ObjectHideFlags: 0
@@ -10475,6 +10469,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1792226961}
     m_Modifications:
+    - target: {fileID: 4198057330414274345, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 447614306}
+    - target: {fileID: 4198057330414274345, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveMagicCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485530022507008457, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6277400547860330481, guid: e2f54ab0d6e764eadb37de36829b3eb7,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10591,6 +10600,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2655514017135658919}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2655514017135658921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1670653400071410337, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2655514017135658919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a216a7b4eece940f9a5d531ec28c6b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3159612344098762017
 PrefabInstance:
   m_ObjectHideFlags: 0

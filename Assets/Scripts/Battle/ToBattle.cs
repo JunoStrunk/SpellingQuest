@@ -6,17 +6,13 @@ using UnityEngine.Events;
 
 public class ToBattle : MonoBehaviour
 {
-    UnityEvent onToBattle;
 
     Animator enemy;
 
     void Start()
     {
-        if (onToBattle == null)
-            onToBattle = new UnityEvent();
         enemy = GetComponent<Animator>();
         transform.GetChild(0).gameObject.SetActive(false);
-        onToBattle.AddListener(GameObject.Find("Transition").GetComponent<Transition>().LoadBattleNonEnum);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +27,7 @@ public class ToBattle : MonoBehaviour
 
     public void LoadBattle()
     {
-        onToBattle.Invoke();
+        GeneralEventManager.current.LoadBattle(SceneType.ToBattle);
         Destroy(this.gameObject);
     }
 }

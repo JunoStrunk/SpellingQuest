@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Tapped(InputAction.CallbackContext cxt)
     {
-        UIEventManager.current.PlayerTap();
+        GeneralEventManager.current.PlayerTap();
     }
 
     public void CanPlayerMove(bool move)
