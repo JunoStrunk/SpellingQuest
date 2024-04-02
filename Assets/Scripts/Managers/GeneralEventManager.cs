@@ -12,7 +12,7 @@ public class GeneralEventManager : MonoBehaviour
     {
         current = this;
         SceneManage.CurrScene currScene = GetComponent<SceneManage>().currScene;
-        if (currScene == SceneManage.CurrScene.BattleNoDungeon || currScene == SceneManage.CurrScene.Main)
+        if (currScene == SceneManage.CurrScene.BattleNoDungeon || currScene == SceneManage.CurrScene.Main || currScene == SceneManage.CurrScene.Town)
             return;
         DontDestroyOnLoad(this);
     }
@@ -37,23 +37,23 @@ public class GeneralEventManager : MonoBehaviour
     //=============================-----=======================
 
     //========================== LoadDungeon =======================
-    public event Action<SceneType> onLoadDungeon;
-    public void LoadDungeon(SceneType sceneType)
+    public event Action<SceneType, int> onLoadDungeon;
+    public void LoadDungeon(SceneType sceneType, int dungID)
     {
         if (onLoadDungeon != null)
         {
             Debug.Log("EventTriggered");
-            onLoadDungeon(sceneType);
+            onLoadDungeon(sceneType, dungID);
         }
     }
     //=============================-----=======================
 
     //========================== LoadDungeon =======================
-    public event Action<SceneType> onLoadBattle;
-    public void LoadBattle(SceneType sceneType)
+    public event Action<SceneType, int> onLoadBattle;
+    public void LoadBattle(SceneType sceneType, int batID)
     {
         if (onLoadBattle != null)
-            onLoadBattle(sceneType);
+            onLoadBattle(sceneType, batID);
     }
     //=============================-----=======================
 

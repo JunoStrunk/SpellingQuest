@@ -65,7 +65,7 @@ public class Spellspace : MonoBehaviour
             GeneralEventManager.current.PlayerDeath();
         else
         {
-            GeneralEventManager.current.LoadDungeon(SceneType.BackToDungeon);
+            GeneralEventManager.current.LoadDungeon(SceneType.BackToDungeon, 0);
             GeneralEventManager.current.EnemyDefeat();
         }
 

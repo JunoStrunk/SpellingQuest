@@ -25,7 +25,8 @@ public class SceneManage : MonoBehaviour
         Main,
         BattleNoDungeon,
         Battle,
-        Dungeon
+        Dungeon,
+        Town
     };
 
     public CurrScene currScene = new CurrScene();
@@ -33,7 +34,7 @@ public class SceneManage : MonoBehaviour
     Canvas dungeonCanvas;
     Camera mainCam;
     PlayerMovement playerMove;
-    delegate void FunctionalLoad();
+    delegate void FunctionalLoad(int id);
     FunctionalLoad functionalLoad;
 
     void Start()
@@ -61,20 +62,20 @@ public class SceneManage : MonoBehaviour
         GeneralEventManager.current.onLoadBattle -= BattleLoadHandler;
     }
 
-    public void BattleLoadHandler(SceneType sceneType)
+    public void BattleLoadHandler(SceneType sceneType, int batID)
     {
         if (sceneType == SceneType.ToBattle)
         {
             functionalLoad = LoadToBattle;
         }
-        else if (sceneType == SceneType.ToTutorial)
-        {
-            functionalLoad = LoadTutorial;
-        }
-        StartCoroutine(PauseBeforeLoad());
+        // else if (sceneType == SceneType.ToTutorial)
+        // {
+        //     functionalLoad = LoadTutorial;
+        // }
+        StartCoroutine(PauseBeforeLoad(batID));
     }
 
-    public void DungeonLoadHandler(SceneType sceneType)
+    public void DungeonLoadHandler(SceneType sceneType, int dungID)
     {
         if (sceneType == SceneType.BackToDungeon && currScene != CurrScene.BattleNoDungeon)
         {
@@ -85,63 +86,69 @@ public class SceneManage : MonoBehaviour
             Debug.Log("Set Functional Load");
             functionalLoad = LoadDungeon;
         }
-        StartCoroutine(PauseBeforeLoad());
+        StartCoroutine(PauseBeforeLoad(dungID));
     }
 
-    IEnumerator PauseBeforeLoad()
+    IEnumerator PauseBeforeLoad(int id)
     {
         yield return new WaitForSeconds(pause);
         if (functionalLoad != null)
-            functionalLoad();
+            functionalLoad(id);
     }
 
-    public void LoadDungeon()
+    public void LoadDungeon(int id)
     {
         Debug.Log("Loading Dungeon");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(id);
     }
-    public void LoadTutorial()
+    public void LoadTown(int id)
     {
-        functionalLoad = TutorialHandler;
-        StartCoroutine(PauseBeforeLoad());
-    }
-
-    void TutorialHandler()
-    {
-        Debug.Log("Loading Tutorial");
+        Debug.Log("Loading Town");
         SceneManager.LoadScene(1);
     }
+
+    // public void LoadTutorial(int id)
+    // {
+    //     functionalLoad = TutorialHandler;
+    //     StartCoroutine(PauseBeforeLoad(0));
+    // }
+
+    // void TutorialHandler(int id)
+    // {
+    //     Debug.Log("Loading Tutorial");
+    //     SceneManager.LoadScene(3);
+    // }
 
     public void LoadUltWin()
     {
         functionalLoad = UltWinHandler;
-        StartCoroutine(PauseBeforeLoad());
+        StartCoroutine(PauseBeforeLoad(0));
     }
-    void UltWinHandler()
+    void UltWinHandler(int id)
     {
         Debug.Log("Loading Win");
-        SceneManager.LoadScene(4);
-    }
-
-    public void LoadUltLose()
-    {
-        Debug.Log("Loading Lose");
         SceneManager.LoadScene(5);
     }
 
-    public void LoadToBattle()
+    public void LoadUltLose(int id)
+    {
+        Debug.Log("Loading Lose");
+        SceneManager.LoadScene(6);
+    }
+
+    public void LoadToBattle(int id)
     {
         Debug.Log("Loading ToBattle");
         mainCam.enabled = false;
         dungeonCanvas.gameObject.SetActive(false);
-        SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive);
     }
 
-    public void LoadBackToDungeon()
+    public void LoadBackToDungeon(int id)
     {
         Debug.Log("Loading BackToDungeon");
         playerMove.CanPlayerMove(true);
-        SceneManager.UnloadSceneAsync(3);
+        SceneManager.UnloadSceneAsync(id);
         mainCam.enabled = true;
         dungeonCanvas.gameObject.SetActive(true);
     }

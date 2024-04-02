@@ -23,7 +23,7 @@ public class Transition : MonoBehaviour
         GeneralEventManager.current.onLoadBattle -= SlideIn;
     }
 
-    public void SlideIn(SceneType sceneType)
+    public void SlideIn(SceneType sceneType, int id)
     {
         anim.SetTrigger("SlideIn");
     }

@@ -6,7 +6,8 @@ using UnityEngine.Events;
 
 public class ToBattle : MonoBehaviour
 {
-
+    [SerializeField]
+    int battleID = 4;
     Animator enemy;
 
     void Start()
@@ -27,7 +28,7 @@ public class ToBattle : MonoBehaviour
 
     public void LoadBattle()
     {
-        GeneralEventManager.current.LoadBattle(SceneType.ToBattle);
+        GeneralEventManager.current.LoadBattle(SceneType.ToBattle, battleID);
         Destroy(this.gameObject);
     }
 }
