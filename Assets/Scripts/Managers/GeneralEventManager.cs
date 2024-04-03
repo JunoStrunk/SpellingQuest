@@ -32,7 +32,9 @@ public class GeneralEventManager : MonoBehaviour
     public void PlayerTap()
     {
         if (onPlayerTap != null)
+        {
             onPlayerTap();
+        }
     }
     //=============================-----=======================
 

@@ -142,6 +142,7 @@ public class SceneManage : MonoBehaviour
         mainCam.enabled = false;
         dungeonCanvas.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive);
+        UIEventManager.current.SceneLoad();
     }
 
     public void LoadBackToDungeon(int id)

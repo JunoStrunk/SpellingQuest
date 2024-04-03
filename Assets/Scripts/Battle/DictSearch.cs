@@ -21,10 +21,10 @@ public class DictSearch : MonoBehaviour
 			// Debug.Log(lines[i]);
 
 			//Mac
-			dict.Add(lines[i], lines[i].Length);
+			// dict.Add(lines[i], lines[i].Length);
 
 			//Windows
-			// dict.Add(lines[i].Remove(lines[i].Length - 1, 1), lines[i].Length);
+			dict.Add(lines[i].Remove(lines[i].Length - 1, 1), lines[i].Length);
 		}
 	}
 

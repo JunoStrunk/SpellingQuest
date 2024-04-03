@@ -14,7 +14,6 @@ public class RWMagicCircle : MonoBehaviour
     void Awake()
     {
         path = Application.persistentDataPath + "/MagicCircle.txt";
-        Debug.Log(path);
         if (!File.Exists(path))
         {
             Debug.Log("Creating file");
@@ -49,8 +48,6 @@ public class RWMagicCircle : MonoBehaviour
             chars.Add((char)sr.Read());
         }
         sr.Close();
-        foreach (char c in chars)
-            Debug.Log(c);
         return chars;
     }
 

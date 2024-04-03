@@ -53,4 +53,14 @@ public class UIEventManager : MonoBehaviour
         }
     }
     //=============================-----=======================
+
+    //========================== SceneLoad =======================
+    // For dialogue
+    public event Action onSceneLoad;
+    public void SceneLoad()
+    {
+        if (onSceneLoad != null)
+            onSceneLoad();
+    }
+    //=============================-----=======================
 }

@@ -60,6 +60,7 @@ public class DialogueManager : MonoBehaviour
     public bool isInDialouge = false;
     private bool isTyping = false;
     private bool cancelTyping = false;
+    public bool inBattle = false;
 
     [Header("Dialogue Image")]
     [Tooltip("Invisible/Placeholder sprite for when no one is talking")]
@@ -83,7 +84,8 @@ public class DialogueManager : MonoBehaviour
         }
         speaker.sprite = invisSprite;
         DialogueUI.SetActive(false);
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        if (!inBattle)
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void FreezePlayer()
