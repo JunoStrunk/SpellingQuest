@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
             speakerSpriteNames.Add(info.name);
         }
         speaker.sprite = invisSprite;
-        DialogueUI.SetActive(false);
+        // DialogueUI.SetActive(false);
         if (!inBattle)
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }

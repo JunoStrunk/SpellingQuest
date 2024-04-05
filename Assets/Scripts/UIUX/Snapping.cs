@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Snapping : MonoBehaviour
 {
-    [SerializeField]
-    float tolerance = 1f;
+    // [SerializeField]
+    float tolerance = 130f;
+    float exitTolerance = 120f;
 
     List<SnapPoint> points = new List<SnapPoint>();
 
@@ -24,15 +25,15 @@ public class Snapping : MonoBehaviour
         UIEventManager.current.onRockDrop -= CheckSnap;
     }
 
-    void CheckSnap(Vector3 pos, Transform rock)
+    public void CheckSnap(Vector3 pos, Transform rock)
     {
         foreach (SnapPoint sp in points)
         {
-            if (sp.getCurrStone() == rock && Vector3.Distance(sp.GetComponent<RectTransform>().position, pos) > tolerance)
+            if (sp.getCurrStone() == rock && Vector3.Distance(sp.GetComponent<RectTransform>().position, pos) > tolerance - exitTolerance)
             {
                 sp.setCurrStone(null);
             }
-            else if (Vector3.Distance(sp.GetComponent<RectTransform>().position, pos) <= tolerance)
+            else if (sp.getCurrStone() == null && Vector3.Distance(sp.GetComponent<RectTransform>().position, pos) <= tolerance)
             {
                 rock.position = sp.transform.position;
                 sp.setCurrStone(rock.transform);

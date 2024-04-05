@@ -749,7 +749,7 @@ PrefabInstance:
     - target: {fileID: 3023416646821993035, guid: 2e6e12d6e3eec42e58d4c5044e3dbb90,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6322243466510199134, guid: 2e6e12d6e3eec42e58d4c5044e3dbb90,
         type: 3}
@@ -999,6 +999,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7647005984047130825, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7647005984047130825, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7647005984047130825, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -761
       objectReference: {fileID: 0}
     - target: {fileID: 8036123172045459561, guid: e2f54ab0d6e764eadb37de36829b3eb7,
         type: 3}
