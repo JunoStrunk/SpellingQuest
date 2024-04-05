@@ -7,11 +7,6 @@ public class ToggleSpellBook : MonoBehaviour
     [SerializeField]
     GameObject spellBookUI;
 
-    void Start()
-    {
-        spellBookUI.SetActive(false);
-    }
-
     public void ShowSpellBook()
     {
         spellBookUI.SetActive(true);

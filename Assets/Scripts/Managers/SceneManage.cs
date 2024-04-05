@@ -37,6 +37,9 @@ public class SceneManage : MonoBehaviour
     delegate void FunctionalLoad(int id);
     FunctionalLoad functionalLoad;
 
+    [HideInInspector]
+    public int lastLoadedBattle;
+
     void Start()
     {
         if (currScene == CurrScene.Main)
@@ -142,14 +145,14 @@ public class SceneManage : MonoBehaviour
         mainCam.enabled = false;
         dungeonCanvas.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive);
-        UIEventManager.current.SceneLoad();
+        lastLoadedBattle = id;
     }
 
     public void LoadBackToDungeon(int id)
     {
         Debug.Log("Loading BackToDungeon");
         playerMove.CanPlayerMove(true);
-        SceneManager.UnloadSceneAsync(id);
+        SceneManager.UnloadSceneAsync(lastLoadedBattle);
         mainCam.enabled = true;
         dungeonCanvas.gameObject.SetActive(true);
     }

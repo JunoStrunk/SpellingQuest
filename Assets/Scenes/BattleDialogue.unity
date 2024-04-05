@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2049,6 +2049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 894939928}
   - component: {fileID: 894939927}
+  - component: {fileID: 894939929}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2133,6 +2134,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &894939929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894939926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &956269333
 GameObject:
   m_ObjectHideFlags: 0
@@ -7042,8 +7066,74 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1289443849183331372, guid: fb445db9ae11441438a5a650699b2acf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 991720299}
+    - targetCorrespondingSourceObject: {fileID: 6049085453218920493, guid: fb445db9ae11441438a5a650699b2acf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 991720298}
   m_SourcePrefab: {fileID: 100100000, guid: fb445db9ae11441438a5a650699b2acf, type: 3}
+--- !u!1 &991720296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6049085453218920493, guid: fb445db9ae11441438a5a650699b2acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 991720295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &991720297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1289443849183331372, guid: fb445db9ae11441438a5a650699b2acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 991720295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &991720298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991720296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!114 &991720299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991720297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1024579601
 GameObject:
   m_ObjectHideFlags: 0
@@ -7306,6 +7396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpellBookUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036123172045459561, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

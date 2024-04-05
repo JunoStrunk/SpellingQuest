@@ -2834,6 +2834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144135821}
   - component: {fileID: 1144135820}
+  - component: {fileID: 1144135822}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2918,6 +2919,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1144135822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144135819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1160467366
 GameObject:
   m_ObjectHideFlags: 0
@@ -10589,6 +10613,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpellBookUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8036123172045459561, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10678,8 +10707,74 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1289443849183331372, guid: fb445db9ae11441438a5a650699b2acf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3159612344098762021}
+    - targetCorrespondingSourceObject: {fileID: 6049085453218920493, guid: fb445db9ae11441438a5a650699b2acf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3159612344098762020}
   m_SourcePrefab: {fileID: 100100000, guid: fb445db9ae11441438a5a650699b2acf, type: 3}
+--- !u!1 &3159612344098762018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6049085453218920493, guid: fb445db9ae11441438a5a650699b2acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3159612344098762017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3159612344098762019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1289443849183331372, guid: fb445db9ae11441438a5a650699b2acf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3159612344098762017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3159612344098762020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159612344098762018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!114 &3159612344098762021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159612344098762019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

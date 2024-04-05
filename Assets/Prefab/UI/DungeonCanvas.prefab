@@ -508,8 +508,8 @@ GameObject:
   - component: {fileID: 4213719833092192242}
   - component: {fileID: 1355755535886734823}
   - component: {fileID: 7296943148033363356}
-  - component: {fileID: 5339766388298198772}
   - component: {fileID: 6644370675257863899}
+  - component: {fileID: 2963771233413315473}
   m_Layer: 5
   m_Name: SpellBookButton
   m_TagString: Untagged
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5339766388298198772}
+      - m_Target: {fileID: 2963771233413315473}
         m_TargetAssemblyTypeName: ToggleSpellBook, Assembly-CSharp
         m_MethodName: ShowSpellBook
         m_Mode: 1
@@ -630,19 +630,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5339766388298198772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4833517616118076386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6217b4778356469bb04c823caf1f5ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellBookUI: {fileID: 5580356140033562009}
 --- !u!114 &6644370675257863899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,6 +645,19 @@ MonoBehaviour:
   SpellText: {fileID: 7359757262336650170, guid: 92533dd4000f548bc91de87b77c5e7f1,
     type: 3}
   usedSpellContainer: {fileID: 8645590870841934736}
+--- !u!114 &2963771233413315473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833517616118076386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6217b4778356469bb04c823caf1f5ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellBookUI: {fileID: 5580356140033562009}
 --- !u!1 &5829824584035455703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,6 +1004,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpellBookUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036123172045459561, guid: e2f54ab0d6e764eadb37de36829b3eb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
