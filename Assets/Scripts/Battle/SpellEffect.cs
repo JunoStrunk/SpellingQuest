@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class SpellEffect : MonoBehaviour
 {
+    public Spell spell;
     ParticleSystem effect;
 
     void Awake()
     {
-        effect = GetComponent<ParticleSystem>();
+        effect = GetComponentInChildren<ParticleSystem>();
         effect.Stop();
     }
 
     public void cast(Spell spell)
     {
-        effect.Play();
+        if (this.spell.incantation == spell.incantation)
+            effect.Play();
     }
 
     public void cast(int tempint, string tempstring)

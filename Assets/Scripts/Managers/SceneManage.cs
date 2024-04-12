@@ -139,6 +139,12 @@ public class SceneManage : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
+    public void LoadMainMenu(int id)
+    {
+        Debug.Log("Loading MainMenu");
+        SceneManager.LoadScene(0);
+    }
+
     public void LoadToBattle(int id)
     {
         Debug.Log("Loading ToBattle");

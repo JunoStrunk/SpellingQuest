@@ -22,12 +22,6 @@ public class HatFollow : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // void OnDrawGizmos()
-    // {
-    //     targetPos = new Vector3(target.position.x, target.position.y + targetHeight + hatBobFactor * Mathf.Sin(Time.time), target.position.z - 0.5f);
-    //     Gizmos.DrawLine(transform.position, targetPos);
-    // }
-
     void FixedUpdate()
     {
         transform.rotation = Quaternion.LookRotation(target.forward, target.up);

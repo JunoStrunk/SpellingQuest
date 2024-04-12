@@ -32,6 +32,12 @@ public class Spellbook : MonoBehaviour
 	TempShowing noWordWarning;
 
 	[SerializeField]
+	SpellEffect genSpellEffect;
+
+	[SerializeField]
+	List<SpellEffect> effects;
+
+	[SerializeField]
 	List<Spell> spells;
 	List<string> usedSpells;
 	DictSearch dict;
@@ -50,10 +56,14 @@ public class Spellbook : MonoBehaviour
 
 		castingArea.Select();
 
+		foreach (SpellEffect effect in effects)
+		{
+			castSpell.AddListener(effect.cast);
+		}
+		genSpell.AddListener(genSpellEffect.cast);
+
 		castSpell.AddListener(GameObject.Find("Spellspace").GetComponent<Spellspace>().PlayerSpell);
-		castSpell.AddListener(GameObject.Find("SpellEffect").GetComponent<SpellEffect>().cast);
 		genSpell.AddListener(GameObject.Find("Spellspace").GetComponent<Spellspace>().GenSpell);
-		genSpell.AddListener(GameObject.Find("SpellEffect").GetComponent<SpellEffect>().cast);
 	}
 
 	public void Update()

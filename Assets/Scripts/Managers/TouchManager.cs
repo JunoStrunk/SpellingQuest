@@ -36,7 +36,6 @@ public class TouchManager : MonoBehaviour
         dialogue = FindObjectOfType<DialogueManager>();
         Transform letterContainer = GameObject.FindGameObjectWithTag("Letters").transform;
         onTouchEnd.AddListener(GameObject.Find("Spellbook").GetComponent<Spellbook>().CollectInput);
-        // onTouchMove.AddListener(letterContainer.GetComponent<LineBehavior>().MovePoint);
         for (int i = 0; i < letterContainer.childCount; i++)
         {
             Letter child = letterContainer.GetChild(i).GetComponent<Letter>();
@@ -52,16 +51,10 @@ public class TouchManager : MonoBehaviour
         {
             Touch activeTouch = Touch.activeFingers[0].currentTouch;
 
-            if (activeTouch.phase == UnityEngine.InputSystem.TouchPhase.Moved)
-            {
-                // onTouchMove?.Invoke(activeTouch.screenPosition);
-            }
-            else if (activeTouch.phase == UnityEngine.InputSystem.TouchPhase.Ended || activeTouch.phase == UnityEngine.InputSystem.TouchPhase.Canceled)
+            if (activeTouch.phase == UnityEngine.InputSystem.TouchPhase.Ended || activeTouch.phase == UnityEngine.InputSystem.TouchPhase.Canceled)
             {
                 onTouchEnd?.Invoke();
             }
-
-            // Debug.Log($"Phase: {activeTouch.phase} | Position: {activeTouch.screenPosition}");
         }
     }
 }

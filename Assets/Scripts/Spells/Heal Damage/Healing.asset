@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d5da0433898a4fb88db102b7d1f366c, type: 3}
   m_Name: Healing
   m_EditorClassIdentifier: 
+  isSpecial: 1
   spellName: Healing
   incantation: heal
+  effect: {fileID: 0}
   spellType: 2
   healing: 5

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -611,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd1cf89be767434f9fb0c62d9c8b8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 0}
 --- !u!199 &956269335
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5557,75 +5558,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &1291831208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1291831211}
-  - component: {fileID: 1291831210}
-  - component: {fileID: 1291831209}
-  m_Layer: 0
-  m_Name: Spellbook
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1291831209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291831208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbea8e1922f0d44a8873e320edf78028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dictText: {fileID: 4900000, guid: 2ae137d82ee7e4f1ea841608a5c191eb, type: 3}
---- !u!114 &1291831210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291831208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352e93fc689264b2b9e9ea45a87c2ef0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  castSpell:
-    m_PersistentCalls:
-      m_Calls: []
-  genSpell:
-    m_PersistentCalls:
-      m_Calls: []
-  castingArea: {fileID: 0}
-  usedWordWarning: {fileID: 0}
-  noWordWarning: {fileID: 0}
-  spells:
-  - {fileID: 11400000, guid: 6a84397dacf54498d82e7c1a8b9c44c4, type: 2}
---- !u!4 &1291831211
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291831208}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 162.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498931071
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,6 +6071,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2092232396
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 162.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178280659498401162, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887915677939594975, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: m_Name
+      value: Spellbook
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966848516091685268, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: castingArea
+      value: 
+      objectReference: {fileID: 6237639016310859602}
+    - target: {fileID: 5966848516091685268, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: noWordWarning
+      value: 
+      objectReference: {fileID: 6237639016310859600}
+    - target: {fileID: 5966848516091685268, guid: a1e826988a6114071a790bc8bbb9245a,
+        type: 3}
+      propertyPath: usedWordWarning
+      value: 
+      objectReference: {fileID: 6237639016310859601}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a1e826988a6114071a790bc8bbb9245a, type: 3}
 --- !u!1001 &6237639016310859599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6292,6 +6307,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4c9cdd75c47e444f923168da58e35f9, type: 3}
+--- !u!114 &6237639016310859600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7060547150192801003, guid: e4c9cdd75c47e444f923168da58e35f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6237639016310859599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b24d3b03015c44d3b2fce341d0a5b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6237639016310859601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2745826781531396972, guid: e4c9cdd75c47e444f923168da58e35f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6237639016310859599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b24d3b03015c44d3b2fce341d0a5b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6237639016310859602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 351520329554427128, guid: e4c9cdd75c47e444f923168da58e35f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6237639016310859599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -6306,6 +6357,6 @@ SceneRoots:
   - {fileID: 1498931074}
   - {fileID: 1967653968}
   - {fileID: 1759959323}
-  - {fileID: 1291831211}
   - {fileID: 296239241}
   - {fileID: 991720295}
+  - {fileID: 2092232396}

@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5887915677939594975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178280659498401162}
+  - component: {fileID: 5966848516091685268}
+  - component: {fileID: 6885064723430234805}
+  m_Layer: 0
+  m_Name: Spellbook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178280659498401162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887915677939594975}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 162.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5966848516091685268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887915677939594975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352e93fc689264b2b9e9ea45a87c2ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castSpell:
+    m_PersistentCalls:
+      m_Calls: []
+  genSpell:
+    m_PersistentCalls:
+      m_Calls: []
+  castingArea: {fileID: 0}
+  usedWordWarning: {fileID: 0}
+  noWordWarning: {fileID: 0}
+  genSpellEffect: {fileID: 0}
+  effects:
+  - {fileID: 0}
+  spells:
+  - {fileID: 11400000, guid: 6a84397dacf54498d82e7c1a8b9c44c4, type: 2}
+  - {fileID: 11400000, guid: 3c97ba8e8b8ca40a283eb4c04754376e, type: 2}
+--- !u!114 &6885064723430234805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887915677939594975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbea8e1922f0d44a8873e320edf78028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dictText: {fileID: 4900000, guid: 2ae137d82ee7e4f1ea841608a5c191eb, type: 3}
